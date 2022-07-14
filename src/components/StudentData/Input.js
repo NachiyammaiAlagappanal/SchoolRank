@@ -1,6 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable max-lines-per-function */
-
 import { React } from 'react';
 const MarksInput = ({ state, actions, config }) =>
 	config.subjects.map((subject) =>
