@@ -2,10 +2,21 @@
 /* eslint-disable max-lines-per-function */
 
 import { React } from 'react';
+const MarksInput = ({ state, actions, config }) =>
+	config.subjects.map((subject) =>
+		<span key={ subject }><label>{subject}
+			<input
+				id={ subject }
+				className="text-box"
+				type="number"
+				value={ state[subject] }
+				onChange={ (evt) =>
+					actions.setMark({ [subject]: evt.target.value }) }
+			/>
+		</label><br/></span>);
 
 const Inputs = (context) => {
-	const { state, config } = context;
-	const { subjects } = config;
+	const { state } = context;
 
 	return (
 		<div>
@@ -19,19 +30,7 @@ const Inputs = (context) => {
 						context.actions.setStudentName(evt.target.value) }
 				/></label>
 			<div>Marks Scored{}</div>
-			{
-				subjects.map((subject) =>
-					<span key={ subject }><label>{subject}
-						<input
-							id={ subject }
-							className="text-box"
-							type="number"
-							value={ state[subject] }
-							onChange={ (evt) =>
-								context.actions.setMark({ [subject]: evt.target.value }) }
-						/>
-					</label><br/></span>)
-			}
+			{MarksInput(context)}
 		</div>);
 };
 
