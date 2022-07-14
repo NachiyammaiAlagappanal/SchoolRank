@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -89,7 +87,7 @@ const table = (context) => {
 const TableContain = (context) =>
 	<TableContainer
 		sx={ {
-			'width': 650,
+			'width': 800,
 			'backgroundColor': 'lightBlue',
 			'& :hover': {
 				backgroundColor: 'yellow',
@@ -99,10 +97,23 @@ const TableContain = (context) =>
 	>{table(context)}
 	</TableContainer>;
 
-const Toggle = (context) => {
-	const { state: { alignment }, state } = context;
+const Toggling = (context) =>
+	<Grid>
+		<ToggleButton
+			value="Table"
 
-	console.log(state);
+			onClick={ () => context.actions.Toggle('Table') }
+		>
+			<TableView/></ToggleButton>
+		<ToggleButton
+			value="Plot"
+
+			onClick={ () => context.actions.Toggle('Plot') }
+		><Poll/></ToggleButton>
+	</Grid>;
+
+const Toggle = (context) => {
+	const { state: { alignment }} = context;
 
 	return (
 		<ToggleButtonGroup
@@ -110,17 +121,7 @@ const Toggle = (context) => {
 			value={ alignment }
 			exclusive={ true }
 		>
-			<ToggleButton
-				value="Table"
-				fontSize="large"
-				onClick={ () => context.actions.Toggle('Table') }
-			>
-				<TableView/></ToggleButton>
-			<ToggleButton
-				value="Plot"
-				fontSize="large"
-				onClick={ () => context.actions.Toggle('Plot') }
-			><Poll/></ToggleButton>
+			{Toggling(context)}
 		</ToggleButtonGroup>);
 };
 
@@ -140,7 +141,7 @@ const MarkSheetD = (context) =>
 			padding={ 5 }
 		>
 			{sliderFunction(context)}</Grid>
-		<Grid paddingLeft={ 60 }>
+		<Grid paddingLeft={ 45 }>
 			{checkToggle(context)}
 		</Grid>
 	</Grid>;
