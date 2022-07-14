@@ -1,9 +1,11 @@
 import { React } from 'react';
 import './App.scss';
+// import MarkSheetD from './components/MITable';
+import TabContent from './components/TabContent';
 
-const App = () =>
+const App = (context) =>
 	<div className="App" role="App">
-		Ready to start.
+		{TabContent(context)}
 	</div>;
 
 export default App;
