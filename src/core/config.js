@@ -1,5 +1,6 @@
 const config = {
-	idLength: 5,
+	idMin: 1001,
+	idMax: 5000,
 	subjects: ['TAMIL', 'ENGLISH', 'SCIENCE'],
 };
 

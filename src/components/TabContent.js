@@ -3,7 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import MarkSheetD from './MITable';
-import Inputs from './Input';
+import StudentData from './StudentData';
 
 const TabPanel = (props) => {
 	const { value, index, children } = props;
@@ -26,7 +26,7 @@ const TabContent = (context) => {
 			<Tab label="Data"/>
 			<Tab label="Reports"/>
 		</Tabs>
-		<TabPanel value={ value } index={ 0 }>{Inputs(context)}
+		<TabPanel value={ value } index={ 0 }>{StudentData(context)}
 		</TabPanel>
 		<TabPanel value={ value } index={ 1 }>{ MarkSheetD(context)}
 		</TabPanel>

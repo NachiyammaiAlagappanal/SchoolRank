@@ -4,9 +4,13 @@ import studentManager from '../services/studentManager';
 const setStudentName = ({ data: name }) => ({
 	name,
 });
-const setMark = ({ data }) => data;
+const setMark = (context) => studentManager.validateMark(context);
 
 const addStudent = (context) => ({
+	name: '',
+	ENGLISH: '',
+	TAMIL: '',
+	SCIENCE: '',
 	studentDetails: studentManager.addStudent(context),
 });
 const changingRange = (context) => ({
