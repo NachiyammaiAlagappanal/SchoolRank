@@ -4,4 +4,20 @@
 	button {
 		font-weight: bold;
 	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: 10% 10% 10%;
+		background-color: #727564;
+		padding: 10px;
+	}
+	.student {
+		border: 1px solid rgba(0, 0, 0, 0.8);
+		padding: 1px;
+		font-size: 15px;
+		text-align: center;
+		background-color: rgb(186, 224, 224);
+	}
+	.text-box {
+		margin: 1%;
+	}
 }
