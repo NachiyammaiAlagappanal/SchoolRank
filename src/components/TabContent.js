@@ -1,20 +1,19 @@
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
 import MarkSheetD from './MITable';
 import StudentData from './StudentData';
+import { Box, Grid } from '@mui/material';
 
 const TabPanel = (props) => {
 	const { value, index, children } = props;
 
 	return value === index && children;
 };
-
-const TabContent = (context) => {
+const TabFunction = (context) => {
 	const { state: { value }} = context;
 
-	return	<Box sx={ { backgroundColor: 'background.paper' } }>
+	return <Box>
 		<Tabs
 			value={ value }
 			onChange={ (event, data) => context.actions
@@ -32,5 +31,9 @@ const TabContent = (context) => {
 		</TabPanel>
 	</Box>;
 };
+
+const TabContent = (context) =>
+	<Grid>{TabFunction(context)}
+	</Grid>;
 
 export default TabContent;

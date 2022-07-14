@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -27,7 +25,6 @@ const sliders = (context) => {
 			onChange={ (evt) => context.actions
 				.changingRange({ [subject]: evt.target.value }) }
 			color="secondary"
-			size="large"
 			valueLabelDisplay="auto"
 			min={ 0 }
 			max={ 100 }
@@ -41,8 +38,8 @@ const sliderFunction = (context) => {
 		map(subjects, (subject) =>
 			<Grid
 				key={ subject }
-				container={ true }
-				justifyContent="center"
+				xs={ 1 }
+				padding={ 2 }
 			>
 				<Grid item={ true }>
 					<Typography>
@@ -51,7 +48,6 @@ const sliderFunction = (context) => {
 				</Grid>
 				<Grid
 					item={ true }
-					xs={ 2 }
 				>{sliders({ ...context, data: subject })}</Grid>
 			</Grid>));
 };
@@ -91,7 +87,7 @@ const table = (context) => {
 const TableContain = (context) =>
 	<TableContainer
 		sx={ {
-			'width': 650,
+			'width': 800,
 			'backgroundColor': 'lightBlue',
 			'& :hover': {
 				backgroundColor: 'yellow',
@@ -101,10 +97,23 @@ const TableContain = (context) =>
 	>{table(context)}
 	</TableContainer>;
 
-const Toggle = (context) => {
-	const { state: { alignment }, state } = context;
+const Toggling = (context) =>
+	<Grid>
+		<ToggleButton
+			value="Table"
 
-	console.log(state);
+			onClick={ () => context.actions.Toggle('Table') }
+		>
+			<TableView/></ToggleButton>
+		<ToggleButton
+			value="Plot"
+
+			onClick={ () => context.actions.Toggle('Plot') }
+		><Poll/></ToggleButton>
+	</Grid>;
+
+const Toggle = (context) => {
+	const { state: { alignment }} = context;
 
 	return (
 		<ToggleButtonGroup
@@ -112,17 +121,7 @@ const Toggle = (context) => {
 			value={ alignment }
 			exclusive={ true }
 		>
-			<ToggleButton
-				value="Table"
-				fontSize="large"
-				onClick={ () => context.actions.Toggle('Table') }
-			>
-				<TableView/></ToggleButton>
-			<ToggleButton
-				value="Plot"
-				fontSize="large"
-				onClick={ () => context.actions.Toggle('Plot') }
-			><Poll/></ToggleButton>
+			{Toggling(context)}
 		</ToggleButtonGroup>);
 };
 
@@ -133,14 +132,18 @@ const checkToggle = (context) => {
 };
 
 const MarkSheetD = (context) =>
-	<Grid
-		container={ true }
-		justifyContent="center"
-		paddingTop={ 5 }
-	>
+	<Grid padding={ 5 }>
 		{Toggle(context)}
-		{sliderFunction(context)}
-		{checkToggle(context)}
+		<Grid
+			container={ true }
+			flexDirection="row"
+			justifyContent="center"
+			padding={ 5 }
+		>
+			{sliderFunction(context)}</Grid>
+		<Grid paddingLeft={ 45 }>
+			{checkToggle(context)}
+		</Grid>
 	</Grid>;
 
 export default MarkSheetD;

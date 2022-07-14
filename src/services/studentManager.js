@@ -12,8 +12,8 @@ const studentManager = {
 			{
 				id: rndBetween(idMin, idMax),
 				StudentName: state.name,
-				ENGLISH: state.ENGLISH,
 				TAMIL: state.TAMIL,
+				ENGLISH: state.ENGLISH,
 				SCIENCE: state.SCIENCE,
 			},
 		];
