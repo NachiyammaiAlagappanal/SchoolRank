@@ -27,7 +27,6 @@ const sliders = (context) => {
 			onChange={ (evt) => context.actions
 				.changingRange({ [subject]: evt.target.value }) }
 			color="secondary"
-			size="large"
 			valueLabelDisplay="auto"
 			min={ 0 }
 			max={ 100 }
@@ -41,8 +40,8 @@ const sliderFunction = (context) => {
 		map(subjects, (subject) =>
 			<Grid
 				key={ subject }
-				container={ true }
-				justifyContent="center"
+				xs={ 1 }
+				padding={ 2 }
 			>
 				<Grid item={ true }>
 					<Typography>
@@ -51,7 +50,6 @@ const sliderFunction = (context) => {
 				</Grid>
 				<Grid
 					item={ true }
-					xs={ 2 }
 				>{sliders({ ...context, data: subject })}</Grid>
 			</Grid>));
 };
@@ -133,14 +131,18 @@ const checkToggle = (context) => {
 };
 
 const MarkSheetD = (context) =>
-	<Grid
-		container={ true }
-		justifyContent="center"
-		paddingTop={ 5 }
-	>
+	<Grid padding={ 5 }>
 		{Toggle(context)}
-		{sliderFunction(context)}
-		{checkToggle(context)}
+		<Grid
+			container={ true }
+			flexDirection="row"
+			justifyContent="center"
+			padding={ 5 }
+		>
+			{sliderFunction(context)}</Grid>
+		<Grid paddingLeft={ 60 }>
+			{checkToggle(context)}
+		</Grid>
 	</Grid>;
 
 export default MarkSheetD;
