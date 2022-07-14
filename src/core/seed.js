@@ -1,5 +1,10 @@
 /* eslint-disable no-magic-numbers */
 const seed = {
+	name: '',
+	ENGLISH: '',
+	TAMIL: '',
+	SCIENCE: '',
+	studentDetails: [],
 	range: {
 		ENGLISH: [20, 30],
 		TAMIL: [20, 30],

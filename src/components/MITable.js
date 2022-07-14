@@ -10,7 +10,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { keys, values } from '@laufire/utils/lib';
 import { map } from '@laufire/utils/collection';
-import consolidatedData from '../services/consolidatedData';
 import { unique } from '@laufire/utils/predicates';
 import { Grid, Slider, Typography } from '@mui/material';
 import FilterManager from '../services/FilterManager';
@@ -78,10 +77,11 @@ const TableContent = (filterMark) =>
 	}
 	</TableRow>);
 const table = (context) => {
-	const newData = consolidatedData(context);
-	const columns = newData.map((d) => keys(d)).flat()
+	const { state: { studentDetails }} = context;
+	const columns = studentDetails.map((d) => keys(d)).flat()
 		.filter(unique);
-	const filterMark = FilterManager.filterMark({ ...context, data: newData });
+	const filterMark = FilterManager.filterMark({ ...context,
+		data: studentDetails });
 
 	return <Table>
 		<TableHead>{TableHeader(columns)}</TableHead>
