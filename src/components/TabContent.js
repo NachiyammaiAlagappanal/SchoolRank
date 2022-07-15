@@ -3,28 +3,30 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import MarkSheetD from './MITable';
 import StudentData from './StudentData';
-import { Box, Grid } from '@mui/material';
+import { AppBar, Box, Grid } from '@mui/material';
 
 const TabPanel = (props) => {
 	const { value, index, children } = props;
 
 	return value === index && children;
 };
+// eslint-disable-next-line max-lines-per-function
 const TabFunction = (context) => {
 	const { state: { value }} = context;
 
-	return <Box>
-		<Tabs
-			value={ value }
-			onChange={ (event, data) => context.actions
-				.changingTab(data) }
-			centered={ true }
-			textColor="inherit"
-			indicatorColor="secondary"
-		>
-			<Tab label="Data"/>
-			<Tab label="Reports"/>
-		</Tabs>
+	return <Box sx={ { borderBottom: 1, borderColor: 'divider', p: 3 } }>
+		<AppBar position="static">
+			<Tabs
+				value={ value }
+				onChange={ (event, data) => context.actions
+					.changingTab(data) }
+				textColor="inherit"
+				variant="fullWidth"
+			>
+				<Tab label="DATA"/>
+				<Tab label="REPORTS"/>
+			</Tabs>
+		</AppBar>
 		<TabPanel value={ value } index={ 0 }>{StudentData(context)}
 		</TabPanel>
 		<TabPanel value={ value } index={ 1 }>{ MarkSheetD(context)}

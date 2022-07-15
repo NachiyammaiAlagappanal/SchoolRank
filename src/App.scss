@@ -21,3 +21,26 @@
 		margin: 1%;
 	}
 }
+.row{
+	display: flex;
+	justify-content: space-between;
+}
+.block{
+	background-color: #1976d2;
+	padding: 1rem;
+	margin: 0.5rem;
+	border-radius: 0.5rem;
+}
+.center{
+	text-align: center ;
+}
+.container{
+	background-color: white;
+	padding: 1rem;
+	margin: 0.5rem;
+	border-radius: 1rem;
+	border-color: #1976d2;
+	border-width: 1rem;
+	border-style: solid;
+	flex: 2;
+}

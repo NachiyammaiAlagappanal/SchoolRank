@@ -5,7 +5,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { keys, values } from '@laufire/utils/lib';
 import { map } from '@laufire/utils/collection';
 import { unique } from '@laufire/utils/predicates';
@@ -24,7 +23,7 @@ const sliders = (context) => {
 			value={ range[subject] }
 			onChange={ (evt) => context.actions
 				.changingRange({ [subject]: evt.target.value }) }
-			color="secondary"
+			color="primary"
 			valueLabelDisplay="auto"
 			min={ 0 }
 			max={ 100 }
@@ -76,8 +75,10 @@ const table = (context) => {
 	const { state: { studentDetails }} = context;
 	const columns = studentDetails.map((d) => keys(d)).flat()
 		.filter(unique);
-	const filterMark = FilterManager.filterMark({ ...context,
-		data: studentDetails });
+	const filterMark = FilterManager.filterMark({
+		...context,
+		data: studentDetails,
+	});
 
 	return <Table sx={ { paddingLeft: '45' } }>
 		<TableHead>{TableHeader(columns)}</TableHead>
@@ -85,16 +86,7 @@ const table = (context) => {
 	</Table>;
 };
 const TableContain = (context) =>
-	<TableContainer
-		sx={ {
-			'width': 800,
-			'backgroundColor': 'lightBlue',
-			'& :hover': {
-				backgroundColor: 'yellow',
-			},
-		} }
-		component={ Paper }
-	>{table(context)}
+	<TableContainer> { table(context) }
 	</TableContainer>;
 
 const Toggling = (alignment, actions) =>
