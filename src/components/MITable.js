@@ -79,7 +79,7 @@ const table = (context) => {
 	const filterMark = FilterManager.filterMark({ ...context,
 		data: studentDetails });
 
-	return <Table>
+	return <Table sx={ { paddingLeft: '45' } }>
 		<TableHead>{TableHeader(columns)}</TableHead>
 		<TableBody>{TableContent(filterMark)}</TableBody>
 	</Table>;
@@ -97,32 +97,27 @@ const TableContain = (context) =>
 	>{table(context)}
 	</TableContainer>;
 
-const Toggling = (context) =>
-	<Grid>
+const Toggling = (alignment, actions) =>
+	<ToggleButtonGroup
+		color="primary"
+		value={ alignment }
+		exclusive={ true }
+	>
 		<ToggleButton
 			value="Table"
-
-			onClick={ () => context.actions.Toggle('Table') }
+			onClick={ () => actions.Toggle('Table') }
 		>
 			<TableView/></ToggleButton>
 		<ToggleButton
 			value="Plot"
-
-			onClick={ () => context.actions.Toggle('Plot') }
+			onClick={ () => actions.Toggle('Plot') }
 		><Poll/></ToggleButton>
-	</Grid>;
+	</ToggleButtonGroup>;
 
 const Toggle = (context) => {
-	const { state: { alignment }} = context;
+	const { state: { alignment }, actions } = context;
 
-	return (
-		<ToggleButtonGroup
-			color="primary"
-			value={ alignment }
-			exclusive={ true }
-		>
-			{Toggling(context)}
-		</ToggleButtonGroup>);
+	return Toggling(alignment, actions);
 };
 
 const checkToggle = (context) => {
@@ -139,9 +134,10 @@ const MarkSheetD = (context) =>
 			flexDirection="row"
 			justifyContent="center"
 			padding={ 5 }
+			marginLeft="16vMin"
 		>
 			{sliderFunction(context)}</Grid>
-		<Grid paddingLeft={ 45 }>
+		<Grid container={ true } justifyContent="center">
 			{checkToggle(context)}
 		</Grid>
 	</Grid>;
