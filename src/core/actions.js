@@ -4,7 +4,7 @@ import studentManager from '../services/studentManager';
 const setStudentName = ({ data: name }) => ({
 	name,
 });
-const setMark = (context) => studentManager.validateMark(context);
+const setMark = ({ data }) => data;
 
 const addStudent = (context) => ({
 	name: '',
@@ -12,6 +12,7 @@ const addStudent = (context) => ({
 	TAMIL: '',
 	SCIENCE: '',
 	studentDetails: studentManager.addStudent(context),
+	alert: studentManager.getAlert(context),
 });
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),

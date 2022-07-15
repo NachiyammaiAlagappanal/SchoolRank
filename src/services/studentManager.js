@@ -1,29 +1,39 @@
 /* eslint-disable no-console */
-import { values } from '@laufire/utils/collection';
 import { rndBetween } from '@laufire/utils/lib';
 
 const studentManager = {
 	addStudent: (context) => {
-		const { config, state } = context;
-		const { idMin, idMax } = config;
+		const { state } = context;
 
+		console.log(studentManager.checkAndAddStudent(context));
 		return [
 			...state.studentDetails,
-			{
+			...studentManager.checkAndAddStudent(context),
+		];
+	},
+	hasEmptyInputs: (state) => {
+		const details = [
+			state.name,
+			state.TAMIL,
+			state.ENGLISH,
+			state.SCIENCE,
+		];
+
+		return details.some((ele) => ele === '');
+	},
+	checkAndAddStudent: ({ state, config: { idMax, idMin }}) =>
+		(studentManager.hasEmptyInputs(state)
+			?	[]
+			: [{
 				id: rndBetween(idMin, idMax),
 				StudentName: state.name,
 				TAMIL: state.TAMIL,
 				ENGLISH: state.ENGLISH,
 				SCIENCE: state.SCIENCE,
-			},
-		];
-	},
-	validateMark: ({ data }) => {
-		const mark = Number(values(data));
-		const max = 100;
-
-		return mark <= max && mark >= 0 ? data : '';
-	},
+			}]),
+	getAlert: (context) => (studentManager.hasEmptyInputs(context)
+		? 'Some Input is empty or Invalid'
+		: ''),
 };
 
 export default studentManager;
