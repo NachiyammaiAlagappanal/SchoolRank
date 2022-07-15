@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import { keys, values } from '@laufire/utils/lib';
 import { map } from '@laufire/utils/collection';
 import { unique } from '@laufire/utils/predicates';
-import { Grid, Slider, Typography } from '@mui/material';
+import { Grid, Slider } from '@mui/material';
 import FilterManager from '../services/FilterManager';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -34,21 +34,14 @@ const sliderFunction = (context) => {
 	const { config: { subjects }} = context;
 
 	return (
-		map(subjects, (subject) =>
-			<Grid
-				key={ subject }
-				xs={ 1 }
-				padding={ 2 }
-			>
-				<Grid item={ true }>
-					<Typography>
-						{subject}
-					</Typography>
-				</Grid>
-				<Grid
+		<TableRow>
+			<TableCell/>
+			<TableCell/>
+			{ map(subjects, (subject) =>
+				<TableCell
 					item={ true }
-				>{sliders({ ...context, data: subject })}</Grid>
-			</Grid>));
+				>{sliders({ ...context,
+						data: subject })}</TableCell>)}</TableRow>);
 };
 
 const TableHeader = (columns) =>
@@ -56,7 +49,6 @@ const TableHeader = (columns) =>
 		{map(columns, (sub) =>
 			<TableCell
 				key={ sub }
-				component="th"
 				align="center"
 			>
 				{sub}</TableCell>)}
@@ -80,7 +72,7 @@ const table = (context) => {
 		data: studentDetails,
 	});
 
-	return <Table sx={ { paddingLeft: '45' } }>
+	return <Table>
 		<TableHead>{TableHeader(columns)}</TableHead>
 		<TableBody>{TableContent(filterMark)}</TableBody>
 	</Table>;
@@ -121,14 +113,8 @@ const checkToggle = (context) => {
 const MarkSheetD = (context) =>
 	<Grid padding={ 5 }>
 		{Toggle(context)}
-		<Grid
-			container={ true }
-			flexDirection="row"
-			justifyContent="center"
-			padding={ 5 }
-			marginLeft="16vMin"
-		>
-			{sliderFunction(context)}</Grid>
+		<Table className="table">
+			<TableHead>{sliderFunction(context)}</TableHead></Table>
 		<Grid container={ true } justifyContent="center">
 			{checkToggle(context)}
 		</Grid>
