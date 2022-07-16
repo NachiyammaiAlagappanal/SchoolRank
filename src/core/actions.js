@@ -7,12 +7,12 @@ const setStudentName = ({ data: name }) => ({
 const setMark = ({ data }) => data;
 
 const addStudent = (context) => ({
+	Alert: studentManager.getAlert(context),
+	studentDetails: studentManager.addStudent(context),
 	name: '',
 	ENGLISH: '',
 	TAMIL: '',
 	SCIENCE: '',
-	studentDetails: studentManager.addStudent(context),
-	alert: studentManager.getAlert(context),
 });
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),
