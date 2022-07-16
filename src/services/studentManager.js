@@ -31,7 +31,7 @@ const studentManager = {
 				ENGLISH: state.ENGLISH,
 				SCIENCE: state.SCIENCE,
 			}]),
-	getAlert: (context) => (studentManager.hasEmptyInputs(context)
+	getAlert: ({ state }) => (studentManager.hasEmptyInputs(state)
 		? 'Some Input is empty or Invalid'
 		: ''),
 };
