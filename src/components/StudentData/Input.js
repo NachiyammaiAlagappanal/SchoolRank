@@ -1,7 +1,7 @@
 import { React } from 'react';
 const MarksInput = ({ state, actions, config }) =>
 	config.subjects.map((subject) =>
-		<span key={ subject }><label>{subject}
+		<span key={ subject }><label>{subject.toUpperCase()}
 			<input
 				id={ subject }
 				className="text-box"
@@ -17,7 +17,7 @@ const Inputs = (context) => {
 
 	return (
 		<div>
-			<label>Student Name:{}
+			<label>STUDENT NAME:{}
 				<input
 					className="text-box"
 					id="name"

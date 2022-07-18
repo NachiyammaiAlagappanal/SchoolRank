@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { React } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -44,15 +45,18 @@ const sliderFunction = (context) => {
 						data: subject })}</TableCell>)}</TableRow>);
 };
 
-const TableHeader = (columns) =>
-	<TableRow>
+const TableHeader = (columns) => {
+	console.log(columns);
+
+	return <TableRow>
 		{map(columns, (sub) =>
 			<TableCell
 				key={ sub }
 				align="center"
 			>
-				{sub}</TableCell>)}
+				{sub.toUpperCase()}</TableCell>)}
 	</TableRow>;
+};
 
 const TableContent = (filterMark) =>
 	map(filterMark, (row, i) => <TableRow key={ i }>{

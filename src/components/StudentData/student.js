@@ -1,14 +1,14 @@
 import { React } from 'react';
 
 const Student = (studentDetail) => {
-	const { id, StudentName, ENGLISH, TAMIL, SCIENCE } = studentDetail;
+	const { id, StudentName, english, tamil, science } = studentDetail;
 
 	return (
 		<div key={ id } className="student">
 			<div>Name: { StudentName }</div>
-			<div>English: { ENGLISH }</div>
-			<div>Tamil: { TAMIL }</div>
-			<div> Science: { SCIENCE }</div>
+			<div>ENGLISH: { english }</div>
+			<div>TAMIL: { tamil }</div>
+			<div> Science: { science }</div>
 		</div>
 	);
 };

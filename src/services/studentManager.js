@@ -14,9 +14,9 @@ const studentManager = {
 	hasEmptyInputs: (state) => {
 		const details = [
 			state.name,
-			state.TAMIL,
-			state.ENGLISH,
-			state.SCIENCE,
+			state.tamil,
+			state.english,
+			state.science,
 		];
 
 		return details.some((ele) => ele === '');
@@ -27,9 +27,9 @@ const studentManager = {
 			: [{
 				id: rndBetween(idMin, idMax),
 				StudentName: state.name,
-				TAMIL: state.TAMIL,
-				ENGLISH: state.ENGLISH,
-				SCIENCE: state.SCIENCE,
+				tamil: state.tamil,
+				english: state.english,
+				science: state.science,
 			}]),
 	getAlert: ({ state }) => (studentManager.hasEmptyInputs(state)
 		? 'Some Input is empty or Invalid'
