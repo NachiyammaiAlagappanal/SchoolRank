@@ -10,9 +10,12 @@ const addStudent = (context) => ({
 	Alert: studentManager.getAlert(context),
 	studentDetails: studentManager.addStudent(context),
 	name: '',
-	ENGLISH: '',
-	TAMIL: '',
-	SCIENCE: '',
+	english: '',
+	tamil: '',
+	science: '',
+});
+const editAlert = () => ({
+	Alert: false,
 });
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),
@@ -32,6 +35,7 @@ const actions = {
 	changingRange,
 	changingTab,
 	Toggle,
+	editAlert,
 };
 
 export default actions;

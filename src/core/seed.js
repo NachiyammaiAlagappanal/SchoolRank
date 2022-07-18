@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
 const seed = {
-	Alert: '',
+	Alert: false,
 	name: '',
 	english: '',
 	tamil: '',

@@ -1,9 +1,14 @@
 import { React } from 'react';
-const AlertMessage = (context) => {
-	const { state: { Alert }} = context;
+import { Alert, Stack } from '@mui/material';
+import AlertTitle from '@mui/material/AlertTitle';
 
-	return <div>{ Alert }
-	</div>;
-};
+const AlertMessage = ({ state }) => (state.Alert !== null
+	?	<Stack sx={ { width: '100%' } } spacing={ 2 }>
+		<Alert severity="error">
+			<AlertTitle>Error</AlertTitle>
+			This is an error alert — <strong>check it out!</strong>
+		</Alert>
+	</Stack>
+	: '');
 
 export default AlertMessage;

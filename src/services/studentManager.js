@@ -31,9 +31,7 @@ const studentManager = {
 				english: state.english,
 				science: state.science,
 			}]),
-	getAlert: ({ state }) => (studentManager.hasEmptyInputs(state)
-		? 'Some Input is empty or Invalid'
-		: ''),
+	getAlert: ({ state }) => !studentManager.hasEmptyInputs(state),
 };
 
 export default studentManager;
