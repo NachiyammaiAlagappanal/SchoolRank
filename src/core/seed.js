@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
 const seed = {
-	Alert: false,
+	status: false,
 	name: '',
 	english: '',
 	tamil: '',
@@ -13,6 +13,8 @@ const seed = {
 	},
 	value: 0,
 	alignment: 'Table',
+	error: null,
+	close: true,
 };
 
 export default seed;

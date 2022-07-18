@@ -7,7 +7,7 @@ const setStudentName = ({ data: name }) => ({
 const setMark = ({ data }) => data;
 
 const addStudent = (context) => ({
-	Alert: studentManager.getAlert(context),
+	status: studentManager.getStatus(context),
 	studentDetails: studentManager.addStudent(context),
 	name: '',
 	english: '',
@@ -27,6 +27,12 @@ const changingTab = (context) => ({
 const Toggle = (context) => ({
 	alignment: context.data,
 });
+const getAlert = (context) => ({
+	error: studentManager.checkInput(context),
+});
+const close = (context) => ({
+	close: context.data,
+});
 
 const actions = {
 	setStudentName,
@@ -36,6 +42,8 @@ const actions = {
 	changingTab,
 	Toggle,
 	editAlert,
+	getAlert,
+	close,
 };
 
 export default actions;
