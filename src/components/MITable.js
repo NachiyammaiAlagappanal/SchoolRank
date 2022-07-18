@@ -40,7 +40,7 @@ const sliderFunction = (context) => {
 			<TableCell/>
 			{ map(subjects, (subject) =>
 				<TableCell
-					item={ true }
+					key={ subject }
 				>{sliders({ ...context,
 						data: subject })}</TableCell>)}</TableRow>);
 };
