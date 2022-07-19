@@ -10,6 +10,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Poll, TableView } from '@mui/icons-material';
 import TableContain from './Table';
 import FilterManager from '../services/FilterManager';
+import Reports from './Reports';
 
 const sliders = (context) => {
 	const { state: { range }, data: subject } = context;
@@ -74,7 +75,7 @@ const checkToggle = (context) => {
 				data: studentDetails,
 			}),
 		}})
-		: 0;
+		: Reports(context);
 };
 
 const MarkSheetD = (context) =>
