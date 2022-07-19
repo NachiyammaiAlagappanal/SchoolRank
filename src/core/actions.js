@@ -10,9 +10,9 @@ const addStudent = (context) => ({
 	Alert: studentManager.getAlert(context),
 	studentDetails: studentManager.addStudent(context),
 	name: '',
-	ENGLISH: '',
-	TAMIL: '',
-	SCIENCE: '',
+	english: '',
+	tamil: '',
+	science: '',
 });
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),
@@ -25,6 +25,10 @@ const Toggle = (context) => ({
 	alignment: context.data,
 });
 
+const setChart = (context) => ({
+	selectedChart: context.data,
+});
+
 const actions = {
 	setStudentName,
 	setMark,
@@ -32,6 +36,7 @@ const actions = {
 	changingRange,
 	changingTab,
 	Toggle,
+	setChart,
 };
 
 export default actions;

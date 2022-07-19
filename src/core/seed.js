@@ -13,6 +13,7 @@ const seed = {
 	},
 	value: 0,
 	alignment: 'Table',
+	selectedChart: '',
 };
 
 export default seed;
