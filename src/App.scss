@@ -7,15 +7,15 @@
 	.grid-container {
 		display: grid;
 		grid-template-columns: 10% 10% 10%;
-		background-color: #727564;
+		background-color:  #1976d2;
 		padding: 10px;
 	}
 	.student {
-		border: 1px solid rgba(0, 0, 0, 0.8);
+		color: white;
 		padding: 1px;
 		font-size: 15px;
 		text-align: center;
-		background-color: rgb(186, 224, 224);
+		background-color:  #1976d2;
 	}
 	.text-box {
 		margin: 1%;
@@ -32,6 +32,7 @@
 	border-radius: 0.5rem;
 }
 .center{
+	color: white;
 	text-align: center ;
 }
 .container{

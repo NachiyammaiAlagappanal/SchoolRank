@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import DoneIcon from '@mui/icons-material/Done';
@@ -8,6 +7,38 @@ import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 
+const Message = (context) =>
+	<Alert
+		action={
+			<IconButton
+				aria-label="close"
+				color="inherit"
+				size="small"
+				onClick={ () => {
+					context.actions.close(false);
+				} }
+			>
+				<CloseIcon fontSize="inherit"/>
+			</IconButton>
+		}
+		severity="error"
+	>
+		<AlertTitle>Error</AlertTitle>
+		Invalid Input — <strong>check it out!</strong>
+	</Alert>;
+
+const AlertBox = (context) => {
+	const { state: { close }} = context;
+
+	return (
+		<Stack
+			sx={ { width: '40%',
+				margin: 'auto' } }
+			spacing={ 2 }
+		>
+			<Collapse in={ close }>{Message(context)}</Collapse>
+		</Stack>);
+};
 const vertical = 'top';
 const horizontal = 'center';
 
@@ -17,43 +48,24 @@ const action = () =>
 		color="success"
 	><DoneIcon/> </Button>;
 
+const snackBar = (status) =>
+	<Snackbar
+		key={ vertical + horizontal }
+		anchorOrigin={ { vertical, horizontal } }
+		open={ status }
+		autoHideDuration={ 3 }
+		message="Successfully Saved"
+		action={ action() }
+	/>;
+
 const AlertMessage = (context) => {
-	const { state: { status, error, close }} = context;
+	const { state: { status, error }} = context;
 
 	return (
 		error !== null && status === false
-			?	<Stack sx={ { width: '100%' } } spacing={ 2 }>
-				<Collapse in={ close }>
-					<Alert
-						action={
-							<IconButton
-								aria-label="close"
-								color="inherit"
-								size="small"
-								onClick={ () => {
-									context.actions.close(false);
-								} }
-							>
-								<CloseIcon fontSize="inherit"/>
-							</IconButton>
-						}
-						severity="error"
-					>
-						<AlertTitle>Error</AlertTitle>
-						This is an error alert — <strong>check it out!</strong>
-					</Alert>
-				</Collapse>
-			</Stack>
-			: 						<div>
-				<Snackbar
-					key={ vertical + horizontal }
-					anchorOrigin={ { vertical, horizontal } }
-					open={ status }
-					autoHideDuration={ 3 }
-					onClick={ () => context.actions.editAlert() }
-					message="Successfully Saved"
-					action={ action() }
-				/></div>
+			? AlertBox(context)
+			:	snackBar(status)
+
 	);
 };
 
