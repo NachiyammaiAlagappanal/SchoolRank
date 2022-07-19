@@ -14,6 +14,7 @@ import FilterManager from '../services/FilterManager';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Poll, TableView } from '@mui/icons-material';
+import Reports from './Reports';
 
 const sliders = (context) => {
 	const { state: { range }, data: subject } = context;
@@ -111,7 +112,7 @@ const Toggle = (context) => {
 const checkToggle = (context) => {
 	const { state: { alignment }} = context;
 
-	return alignment === 'Table' ? TableContain(context) : 0;
+	return alignment === 'Table' ? TableContain(context) : Reports(context);
 };
 
 const MarkSheetD = (context) =>
