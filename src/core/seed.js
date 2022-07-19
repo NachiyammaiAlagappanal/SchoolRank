@@ -15,6 +15,7 @@ const seed = {
 	alignment: 'Table',
 	error: null,
 	close: true,
+	selectedChart: '',
 };
 
 export default seed;

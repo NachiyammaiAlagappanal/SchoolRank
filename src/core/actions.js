@@ -35,6 +35,10 @@ const close = (context) => ({
 	close: context.data,
 });
 
+const setChart = (context) => ({
+	selectedChart: context.data,
+});
+
 const actions = {
 	setStudentName,
 	setMark,
@@ -45,6 +49,7 @@ const actions = {
 	editAlert,
 	getAlert,
 	close,
+	setChart,
 };
 
 export default actions;
