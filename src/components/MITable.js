@@ -1,19 +1,15 @@
-/* eslint-disable no-console */
 import { React } from 'react';
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { keys, values } from '@laufire/utils/lib';
 import { map } from '@laufire/utils/collection';
-import { unique } from '@laufire/utils/predicates';
 import { Grid, Slider } from '@mui/material';
-import FilterManager from '../services/FilterManager';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Poll, TableView } from '@mui/icons-material';
+import TableContain from './Table';
+import FilterManager from '../services/FilterManager';
 
 const sliders = (context) => {
 	const { state: { range }, data: subject } = context;
@@ -35,7 +31,7 @@ const sliderFunction = (context) => {
 	const { config: { subjects }} = context;
 
 	return (
-		<TableRow>
+		<TableRow item={ true }>
 			<TableCell/>
 			<TableCell/>
 			{ map(subjects, (subject) =>
@@ -44,46 +40,6 @@ const sliderFunction = (context) => {
 				>{sliders({ ...context,
 						data: subject })}</TableCell>)}</TableRow>);
 };
-
-const TableHeader = (columns) => {
-	console.log(columns);
-
-	return <TableRow>
-		{map(columns, (sub) =>
-			<TableCell
-				key={ sub }
-				align="center"
-			>
-				{sub.toUpperCase()}</TableCell>)}
-	</TableRow>;
-};
-
-const TableContent = (filterMark) =>
-	map(filterMark, (row, i) => <TableRow key={ i }>{
-		map(values(row), (ele, j) =>
-			<TableCell
-				key={ j }
-				align="center"
-			>{ele} </TableCell>)
-	}
-	</TableRow>);
-const table = (context) => {
-	const { state: { studentDetails }} = context;
-	const columns = studentDetails.map((d) => keys(d)).flat()
-		.filter(unique);
-	const filterMark = FilterManager.filterMark({
-		...context,
-		data: studentDetails,
-	});
-
-	return <Table>
-		<TableHead>{TableHeader(columns)}</TableHead>
-		<TableBody>{TableContent(filterMark)}</TableBody>
-	</Table>;
-};
-const TableContain = (context) =>
-	<TableContainer> { table(context) }
-	</TableContainer>;
 
 const Toggling = (alignment, actions) =>
 	<ToggleButtonGroup
@@ -109,9 +65,16 @@ const Toggle = (context) => {
 };
 
 const checkToggle = (context) => {
-	const { state: { alignment }} = context;
+	const { state: { alignment, studentDetails }} = context;
 
-	return alignment === 'Table' ? TableContain(context) : 0;
+	return alignment === 'Table'
+		? TableContain({ ...context, data: {
+			content: FilterManager.filterMark({
+				...context,
+				data: studentDetails,
+			}),
+		}})
+		: 0;
 };
 
 const MarkSheetD = (context) =>
