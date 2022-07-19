@@ -29,6 +29,7 @@ const Toggle = (context) => ({
 });
 const getAlert = (context) => ({
 	error: studentManager.checkInput(context),
+	close: true,
 });
 const close = (context) => ({
 	close: context.data,
