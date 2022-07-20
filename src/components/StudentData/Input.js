@@ -1,8 +1,12 @@
 import { React } from 'react';
+import TextField from '@mui/material/TextField';
+import { Box } from '@mui/system';
+
 const MarksInput = ({ state, actions, config }) =>
 	config.subjects.map((subject) =>
-		<span key={ subject }><label>{subject.toUpperCase()}
-			<input
+		<Box key={ subject }>
+			<TextField
+				label={ subject.toUpperCase() }
 				id={ subject }
 				className="text-box"
 				type="number"
@@ -10,25 +14,23 @@ const MarksInput = ({ state, actions, config }) =>
 				onChange={ (evt) =>
 					actions.setMark({ [subject]: evt.target.value }) }
 			/>
-		</label><br/></span>);
+		</Box>);
 
 const Inputs = (context) => {
 	const { state } = context;
 
 	return (
-		<div>
-			<label>STUDENT NAME:{}
-				<input
-					className="text-box"
-					id="name"
-					type="text"
-					value={ state.name }
-					onChange={ (evt) =>
-						context.actions.setStudentName(evt.target.value) }
-				/></label>
-			<div>Marks Scored{}</div>
+		<Box>
+			<TextField
+				label="StudentName"
+				id="name"
+				type="text"
+				value={ state.name }
+				onChange={ (evt) =>
+					context.actions.setStudentName(evt.target.value) }
+			/>
 			{MarksInput(context)}
-		</div>);
+		</Box>);
 };
 
 export default Inputs;
