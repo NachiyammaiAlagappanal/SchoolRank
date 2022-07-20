@@ -10,22 +10,28 @@ const TabPanel = (props) => {
 
 	return value === index && children;
 };
-// eslint-disable-next-line max-lines-per-function
+
+const tabs = (context) => {
+	const { state: { value }} = context;
+
+	return (
+		<Tabs
+			value={ value }
+			onChange={ (event, data) => context.actions
+				.changingTab(data) }
+			textColor="inherit"
+			variant="fullWidth"
+		>
+			<Tab label="DATA"/>
+			<Tab label="REPORTS"/>
+		</Tabs>);
+};
 const TabFunction = (context) => {
 	const { state: { value }} = context;
 
 	return <Box sx={ { borderBottom: 1, borderColor: 'divider', p: 3 } }>
 		<AppBar position="static">
-			<Tabs
-				value={ value }
-				onChange={ (event, data) => context.actions
-					.changingTab(data) }
-				textColor="inherit"
-				variant="fullWidth"
-			>
-				<Tab label="DATA"/>
-				<Tab label="REPORTS"/>
-			</Tabs>
+			{tabs(context)}
 		</AppBar>
 		<TabPanel value={ value } index={ 0 }>{StudentData(context)}
 		</TabPanel>
