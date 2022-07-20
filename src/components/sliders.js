@@ -78,7 +78,7 @@ const checkToggle = (context) => {
 		: Reports(context);
 };
 
-const MarkSheetD = (context) =>
+const SliderAndToggle = (context) =>
 	<Grid padding={ 5 }>
 		{Toggle(context)}
 		<Table className="table">
@@ -88,4 +88,4 @@ const MarkSheetD = (context) =>
 		</Grid>
 	</Grid>;
 
-export default MarkSheetD;
+export default SliderAndToggle;

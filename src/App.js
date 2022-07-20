@@ -1,7 +1,6 @@
 import { React } from 'react';
 import './App.scss';
 import Header from './components/Header';
-// import MarkSheetD from './components/MITable';
 import TabContent from './components/TabContent';
 
 const App = (context) =>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import MarkSheetD from './MITable';
+import SliderAndToggle from './sliders';
 import StudentData from './StudentData';
 import { AppBar, Box, Grid } from '@mui/material';
 
@@ -29,7 +29,7 @@ const TabFunction = (context) => {
 		</AppBar>
 		<TabPanel value={ value } index={ 0 }>{StudentData(context)}
 		</TabPanel>
-		<TabPanel value={ value } index={ 1 }>{ MarkSheetD(context)}
+		<TabPanel value={ value } index={ 1 }>{ SliderAndToggle(context)}
 		</TabPanel>
 	</Box>;
 };
