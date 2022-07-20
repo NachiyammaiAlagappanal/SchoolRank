@@ -38,6 +38,9 @@ const close = (context) => ({
 const setChart = (context) => ({
 	selectedChart: context.data,
 });
+const checkValidation = (context) => ({
+	validation: studentManager.checkValidation(context),
+});
 
 const actions = {
 	setStudentName,
@@ -50,6 +53,7 @@ const actions = {
 	getAlert,
 	close,
 	setChart,
+	checkValidation,
 };
 
 export default actions;

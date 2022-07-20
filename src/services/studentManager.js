@@ -1,5 +1,7 @@
+/* eslint-disable no-magic-numbers */
 /* eslint-disable no-console */
 import { rndBetween } from '@laufire/utils/lib';
+import { keys, values } from '@laufire/utils/collection';
 
 const studentManager = {
 	addStudent: (context) => {
@@ -36,6 +38,19 @@ const studentManager = {
 	checkInput: ({ state }) => (studentManager.hasEmptyInputs(state)
 		? true
 		: null),
+	checkValidation: (context) => {
+		const { data, state: { validation }, seed } = context;
+
+		const key = keys(data);
+		const value = values(data);
+
+		console.log(key, value);
+
+		return value >= 0 && value <= 100
+			? seed.validation
+			: { ...validation, [key]: true };
+	},
+	errorMessage: (error) => error && 'Marks range between 0 to 100 only',
 };
 
 export default studentManager;

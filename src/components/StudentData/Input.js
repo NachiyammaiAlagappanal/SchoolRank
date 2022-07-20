@@ -2,19 +2,24 @@ import { React } from 'react';
 import TextField from '@mui/material/TextField';
 import { Box } from '@mui/system';
 import { Table, TableCell, TableHead, TableRow } from '@mui/material';
+import studentManager from '../../services/studentManager';
 
-const MarksInput = ({ state, actions, config }) =>
+const MarksInput = ({ state: { validation }, state, actions, config }) =>
 	config.subjects.map((subject) =>
 		<TableCell 	key={ subject } align="center">
 			<TextField
+				error={ validation[subject] }
 				label={ subject.toUpperCase() }
 				id={ subject }
 				focused={ true }
 				type="number"
 				color="primary"
 				value={ state[subject] }
-				onChange={ (evt) =>
-					actions.setMark({ [subject]: evt.target.value }) }
+				onChange={ (evt) => {
+					actions.setMark({ [subject]: evt.target.value });
+					actions.checkValidation({ [subject]: evt.target.value });
+				} }
+				helperText={ studentManager.errorMessage(validation[subject]) }
 			/></TableCell>);
 
 const studentDetails = (context) =>

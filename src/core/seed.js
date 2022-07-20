@@ -16,6 +16,9 @@ const seed = {
 	error: null,
 	close: true,
 	selectedChart: '',
+	validation: { english: false,
+		tamil: false,
+		science: false },
 };
 
 export default seed;
