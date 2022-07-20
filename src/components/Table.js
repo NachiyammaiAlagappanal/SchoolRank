@@ -37,6 +37,7 @@ const table = (context) => {
 	const columns = studentDetails.map((d) => keys(d)).flat()
 		.filter(unique);
 
+	console.log(content);
 	return <Table>
 		<TableHead>{TableHeader(columns)}</TableHead>
 		<TableBody>{TableContent(content)}</TableBody>

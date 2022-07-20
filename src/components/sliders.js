@@ -32,7 +32,7 @@ const sliderFunction = (context) => {
 	const { config: { subjects }} = context;
 
 	return (
-		<TableRow item={ true }>
+		<TableRow>
 			<TableCell/>
 			<TableCell/>
 			{ map(subjects, (subject) =>
@@ -67,13 +67,12 @@ const Toggle = (context) => {
 
 const checkToggle = (context) => {
 	const { state: { alignment, studentDetails }} = context;
+	const filterMark = FilterManager.filterMark({ ...context,
+		data: studentDetails });
 
 	return alignment === 'Table'
 		? TableContain({ ...context, data: {
-			content: FilterManager.filterMark({
-				...context,
-				data: studentDetails,
-			}),
+			content: filterMark,
 		}})
 		: Reports(context);
 };
