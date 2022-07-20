@@ -12,8 +12,6 @@ const DropDownBox = (context) => {
 		>
 			<option value="HeatMap"> HeatMap </option>
 			<option value="PieChart"> PieChart</option>
-			<option value="LineChart"> LineChart</option>
-			<option value="GroupBarChart"> GroupBarChart</option>
 		</select>
 	</div>;
 };

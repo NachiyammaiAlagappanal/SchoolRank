@@ -9,10 +9,11 @@ const PieChart = ({ config: { chartProps: { width, height }}, data }) => {
 		transform: [{ flatten: ['subjectName', 'marks'] }],
 		mark: { type: 'arc', tooltip: true },
 		encoding: {
-			color: { field: 'marks',
-				type: 'quantitative' },
-			theta: { field: 'subjectName',
+			column: { field: 'studentName' },
+			color: { field: 'subjectName',
 				type: 'nominal' },
+			theta: { field: 'marks',
+				type: 'quantitative' },
 		},
 		data: { name: 'values' },
 	};
