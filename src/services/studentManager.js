@@ -1,7 +1,7 @@
-/* eslint-disable no-magic-numbers */
-
 import { rndBetween } from '@laufire/utils/lib';
 import { keys, values } from '@laufire/utils/collection';
+
+const hundred = 100;
 
 const studentManager = {
 	addStudent: (context) => {
@@ -43,7 +43,7 @@ const studentManager = {
 		const key = keys(data);
 		const value = values(data);
 
-		return value >= 0 && value <= 100
+		return value >= 0 && value <= hundred
 			? seed.validation
 			: { ...validation, [key]: true };
 	},

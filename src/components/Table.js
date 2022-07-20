@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-magic-numbers */
 import { React } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -37,7 +35,6 @@ const table = (context) => {
 	const columns = studentDetails.map((d) => keys(d)).flat()
 		.filter(unique);
 
-	console.log(content);
 	return <Table>
 		<TableHead>{TableHeader(columns)}</TableHead>
 		<TableBody>{TableContent(content)}</TableBody>

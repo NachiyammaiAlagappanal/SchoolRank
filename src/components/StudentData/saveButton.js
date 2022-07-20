@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import Button from '@mui/material/Button';
 import AlertMessage from './alertMessage';
