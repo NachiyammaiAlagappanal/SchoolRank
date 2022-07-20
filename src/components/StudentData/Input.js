@@ -1,34 +1,46 @@
 import { React } from 'react';
+import TextField from '@mui/material/TextField';
+import { Box } from '@mui/system';
+import { Table, TableCell, TableHead, TableRow } from '@mui/material';
+
 const MarksInput = ({ state, actions, config }) =>
 	config.subjects.map((subject) =>
-		<span key={ subject }><label>{subject.toUpperCase()}
-			<input
+		<TableCell 	key={ subject } align="center">
+			<TextField
+				label={ subject.toUpperCase() }
 				id={ subject }
-				className="text-box"
+				focused={ true }
 				type="number"
+				color="primary"
 				value={ state[subject] }
 				onChange={ (evt) =>
 					actions.setMark({ [subject]: evt.target.value }) }
-			/>
-		</label><br/></span>);
+			/></TableCell>);
 
-const Inputs = (context) => {
-	const { state } = context;
+const studentDetails = (context) =>
+	<TableRow>
+		<TableCell/>
+		<TableCell align="center">
+			<TextField
+				fullWidth={ true }
+				label="StudentName"
+				id="name"
+				focused={ true }
+				color="primary"
+				value={ context.state.name }
+				onChange={ (evt) =>
+					context.actions
+						.setStudentName(evt.target.value) }
+			/></TableCell>
+		{MarksInput(context)}
+	</TableRow>;
 
-	return (
-		<div>
-			<label>STUDENT NAME:{}
-				<input
-					className="text-box"
-					id="name"
-					type="text"
-					value={ state.name }
-					onChange={ (evt) =>
-						context.actions.setStudentName(evt.target.value) }
-				/></label>
-			<div>Marks Scored{}</div>
-			{MarksInput(context)}
-		</div>);
-};
+const Inputs = (context) =>
+
+	<Box>
+		<Table className="table">
+			<TableHead>{ studentDetails(context)}</TableHead>
+		</Table>
+	</Box>;
 
 export default Inputs;
