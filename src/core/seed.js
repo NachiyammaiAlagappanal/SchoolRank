@@ -13,11 +13,8 @@ const seed = {
 	},
 	value: 0,
 	alignment: 'Table',
-<<<<<<< HEAD
-=======
 	error: null,
 	close: true,
->>>>>>> 92619a9b0e8e68884361287bc49b1bf0ee90d4c3
 	selectedChart: '',
 };
 

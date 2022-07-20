@@ -13,12 +13,9 @@ const addStudent = (context) => ({
 	english: '',
 	tamil: '',
 	science: '',
-<<<<<<< HEAD
-=======
 });
 const editAlert = () => ({
 	Alert: false,
->>>>>>> 92619a9b0e8e68884361287bc49b1bf0ee90d4c3
 });
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),
@@ -42,10 +39,6 @@ const setChart = (context) => ({
 	selectedChart: context.data,
 });
 
-const setChart = (context) => ({
-	selectedChart: context.data,
-});
-
 const actions = {
 	setStudentName,
 	setMark,
@@ -53,12 +46,9 @@ const actions = {
 	changingRange,
 	changingTab,
 	Toggle,
-<<<<<<< HEAD
-=======
 	editAlert,
 	getAlert,
 	close,
->>>>>>> 92619a9b0e8e68884361287bc49b1bf0ee90d4c3
 	setChart,
 };
 
