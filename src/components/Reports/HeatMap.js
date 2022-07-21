@@ -1,4 +1,5 @@
 /* eslint-disable max-lines-per-function */
+import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
 
@@ -46,7 +47,7 @@ const HeatMap = ({ config: { chartProps: { width, height }}, data }) => {
 	};
 	const actions = false;
 
-	return <VegaLite { ...{ spec, data, actions } }/>;
+	return <VegaLite key={ rndString() }{ ...{ spec, data, actions } }/>;
 };
 
 export default HeatMap;

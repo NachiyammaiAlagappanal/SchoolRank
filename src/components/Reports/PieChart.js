@@ -1,5 +1,6 @@
 import React from 'react';
 import { VegaLite } from 'react-vega';
+import { rndString } from '@laufire/utils/random';
 
 const PieChart = ({ config: { chartProps: { width, height }}, data }) => {
 	const spec = {
@@ -19,7 +20,7 @@ const PieChart = ({ config: { chartProps: { width, height }}, data }) => {
 	};
 	const actions = false;
 
-	return <VegaLite { ...{ spec, data, actions } }/>;
+	return <VegaLite key={ rndString() }{ ...{ spec, data, actions } }/>;
 };
 
 export default PieChart;
