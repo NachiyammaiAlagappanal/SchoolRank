@@ -1,10 +1,10 @@
 import { React } from 'react';
 import Button from '@mui/material/Button';
-import AlertMessage from './alertMessage';
+import { TableCell } from '@mui/material';
 
 const SaveButton = (context) =>
 
-	<div>
+	<TableCell>
 		<Button
 			variant="contained"
 			color="primary"
@@ -12,8 +12,8 @@ const SaveButton = (context) =>
 				context.actions.addStudent(context);
 				context.actions.getAlert(context);
 			} }
+			size="large"
 		>Save</Button>
-		{ AlertMessage(context)}
-	</div>;
+	</TableCell>;
 
 export default SaveButton;

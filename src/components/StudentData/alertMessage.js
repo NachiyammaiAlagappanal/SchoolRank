@@ -7,6 +7,9 @@ import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 
+const vertical = 'top';
+const horizontal = 'center';
+
 const Message = (context) =>
 	<Alert
 		action={
@@ -32,15 +35,12 @@ const AlertBox = (context) => {
 
 	return (
 		<Stack
-			sx={ { width: '40%',
-				margin: 'auto' } }
+			sx={ { width: '40%', margin: 'auto' } }
 			spacing={ 2 }
 		>
 			<Collapse in={ close }>{Message(context)}</Collapse>
 		</Stack>);
 };
-const vertical = 'top';
-const horizontal = 'center';
 
 const action = () =>
 	<Button
@@ -53,7 +53,7 @@ const snackBar = (status) =>
 		key={ vertical + horizontal }
 		anchorOrigin={ { vertical, horizontal } }
 		open={ status }
-		autoHideDuration={ 3 }
+		autoHideDuration={ 1 }
 		message="Successfully Saved"
 		action={ action() }
 	/>;

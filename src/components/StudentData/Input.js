@@ -3,9 +3,12 @@ import TextField from '@mui/material/TextField';
 import { Box } from '@mui/system';
 import { Table, TableCell, TableHead, TableRow } from '@mui/material';
 import studentManager from '../../services/studentManager';
+import SaveButton from './saveButton';
 
-const MarksInput = ({ state: { validation }, state, actions, config }) =>
-	config.subjects.map((subject) =>
+const MarksInput = (context) => {
+	const { state: { validation }, state, actions, config } = context;
+
+	return config.subjects.map((subject) =>
 		<TableCell 	key={ subject } align="center">
 			<TextField
 				error={ validation[subject] }
@@ -21,6 +24,7 @@ const MarksInput = ({ state: { validation }, state, actions, config }) =>
 				} }
 				helperText={ studentManager.errorMessage(validation[subject]) }
 			/></TableCell>);
+};
 
 const studentDetails = (context) =>
 	<TableRow>
@@ -38,6 +42,7 @@ const studentDetails = (context) =>
 						.setStudentName(evt.target.value) }
 			/></TableCell>
 		{MarksInput(context)}
+		{SaveButton(context)}
 	</TableRow>;
 
 const Inputs = (context) =>

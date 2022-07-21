@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Inputs from './Input';
-import SaveButton from './saveButton.js';
 import TableContain from '../Table';
+import AlertMessage from './alertMessage';
 
 const StudentData = (context) => {
 	const { state: { studentDetails }} = context;
@@ -10,8 +10,8 @@ const StudentData = (context) => {
 		<h3>
 			Students Database - Add Student Details</h3>
 		<Inputs { ...context }/>
-		<SaveButton { ...context }/>
 		<TableContain { ...{ ...context, data: { content: studentDetails }} }/>
+		{ AlertMessage(context)}
 	</div>;
 };
 
