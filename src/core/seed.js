@@ -15,7 +15,7 @@ const seed = {
 	alignment: 'Table',
 	error: null,
 	close: true,
-	selectedChart: '',
+	selectedChart: [],
 	validation: { english: false,
 		tamil: false,
 		science: false },
