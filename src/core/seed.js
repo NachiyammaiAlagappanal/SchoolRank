@@ -19,7 +19,8 @@ const seed = {
 	validation: { english: false,
 		tamil: false,
 		science: false },
-	alert: false,
+	selected: false,
+	row: [],
 };
 
 export default seed;

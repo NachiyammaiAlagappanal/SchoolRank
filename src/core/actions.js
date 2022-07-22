@@ -42,6 +42,10 @@ const editStatus = () => ({
 	status: false,
 	error: null,
 });
+const unSelected = (context) => ({
+	selected: true,
+	row: context.data,
+});
 
 const actions = {
 	setStudentName,
@@ -55,6 +59,7 @@ const actions = {
 	editStatus,
 	setChart,
 	checkValidation,
+	unSelected,
 };
 
 export default actions;
