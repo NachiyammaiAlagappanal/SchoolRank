@@ -23,7 +23,7 @@ const studentManager = {
 		return details.some((ele) => ele === '');
 	},
 	checkAndAddStudent: ({ state, config: { idMax, idMin }}) =>
-		(!studentManager.isInputsValid(state)
+		(studentManager.isInputsValid(state)
 			?	[]
 			: [{
 				id: rndBetween(idMin, idMax),
