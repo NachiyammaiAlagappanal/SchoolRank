@@ -23,7 +23,7 @@ const studentManager = {
 		return details.some((ele) => ele === '');
 	},
 	checkAndAddStudent: ({ state, config: { idMax, idMin }}) =>
-		(studentManager.hasEmptyInputs(state)
+		(!studentManager.isInputsValid(state)
 			?	[]
 			: [{
 				id: rndBetween(idMin, idMax),
@@ -32,6 +32,7 @@ const studentManager = {
 				english: state.english,
 				science: state.science,
 			}]),
+
 	getStatus: ({ state }) => !studentManager.hasEmptyInputs(state),
 
 	checkInput: ({ state }) => (studentManager.hasEmptyInputs(state)
@@ -46,6 +47,14 @@ const studentManager = {
 		return value >= 0 && value <= hundred
 			? seed.validation
 			: { ...validation, [key]: true };
+	},
+	isInputsValid: (state) => {
+		const marks = [state.tamil, state.english, state.science];
+
+		return (
+			marks.every((mark) => mark <= hundred && mark >= 0)
+		&& studentManager.hasEmptyInputs(state)
+		);
 	},
 	errorMessage: (error) => error && 'Marks range between 0 to 100 only',
 };
