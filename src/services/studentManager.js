@@ -36,7 +36,7 @@ const studentManager = {
 
 	checkInput: ({ state }) => (studentManager.hasEmptyInputs(state)
 		? true
-		: null),
+		: ''),
 	checkValidation: (context) => {
 		const { data, state: { validation }, seed } = context;
 

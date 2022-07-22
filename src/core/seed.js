@@ -19,6 +19,7 @@ const seed = {
 	validation: { english: false,
 		tamil: false,
 		science: false },
+	alert: false,
 };
 
 export default seed;

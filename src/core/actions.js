@@ -14,9 +14,6 @@ const addStudent = (context) => ({
 	tamil: '',
 	science: '',
 });
-const editAlert = () => ({
-	Alert: false,
-});
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),
 });
@@ -41,6 +38,10 @@ const setChart = (context) => ({
 const checkValidation = (context) => ({
 	validation: studentManager.checkValidation(context),
 });
+const editStatus = () => ({
+	status: false,
+	error: null,
+});
 
 const actions = {
 	setStudentName,
@@ -49,9 +50,9 @@ const actions = {
 	changingRange,
 	changingTab,
 	Toggle,
-	editAlert,
 	getAlert,
 	close,
+	editStatus,
 	setChart,
 	checkValidation,
 };
