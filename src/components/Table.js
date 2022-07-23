@@ -23,6 +23,7 @@ const TableHeader = (columns) =>
 	</TableRow>;
 
 const TableContent = (filterMark, actions) =>
+
 	map(filterMark, (row, i) => <TableRow key={ i }>{
 		map(values(row), (ele, j) =>
 			<TableCell
@@ -56,7 +57,11 @@ const TableContain = (context) => {
 	return <div>
 		<TableContainer> {table(context)}
 		</TableContainer>
-		<Dialog open={ selected }>
+		<Dialog
+			open={ selected }
+			onClose={ () =>
+				context.actions.handleClose() }
+		>
 			<DialogTitle>
 				{`name: ${ row.StudentName } `}</DialogTitle>
 		</Dialog>

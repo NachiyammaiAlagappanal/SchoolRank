@@ -46,6 +46,9 @@ const unSelected = (context) => ({
 	selected: true,
 	row: context.data,
 });
+const handleClose = () => ({
+	selected: false,
+});
 
 const actions = {
 	setStudentName,
@@ -60,6 +63,7 @@ const actions = {
 	setChart,
 	checkValidation,
 	unSelected,
+	handleClose,
 };
 
 export default actions;
