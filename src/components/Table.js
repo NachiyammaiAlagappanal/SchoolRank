@@ -49,6 +49,9 @@ const table = (context) => {
 	</Table>;
 };
 
+const message = (row) => `NAME: ${ row.StudentName }, English: ${ row.english }
+TAMIL: ${ row.tamil }, SCIENCE: ${ row.science }`;
+
 const TableContain = (context) => {
 	const { state: { selected, row }, state } = context;
 
@@ -63,7 +66,7 @@ const TableContain = (context) => {
 				context.actions.handleClose() }
 		>
 			<DialogTitle>
-				{`name: ${ row.StudentName } `}</DialogTitle>
+				{message(row)}</DialogTitle>
 		</Dialog>
 	</div>;
 };
