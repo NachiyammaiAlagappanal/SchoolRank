@@ -24,14 +24,14 @@ const studentManager = {
 	},
 	checkAndAddStudent: ({ state, config: { idMax, idMin }}) =>
 		(studentManager.isInputsValid(state)
-			?	[]
-			: [{
+			?	[{
 				id: rndBetween(idMin, idMax),
 				StudentName: state.name,
 				tamil: state.tamil,
 				english: state.english,
 				science: state.science,
-			}]),
+			}]
+			: []),
 
 	getStatus: ({ state }) => !studentManager.hasEmptyInputs(state),
 
@@ -53,7 +53,7 @@ const studentManager = {
 
 		return (
 			marks.every((mark) => mark <= hundred && mark >= 0)
-		&& studentManager.hasEmptyInputs(state)
+		&& !studentManager.hasEmptyInputs(state)
 		);
 	},
 	errorMessage: (error) => error && 'Marks range between 0 to 100 only',
