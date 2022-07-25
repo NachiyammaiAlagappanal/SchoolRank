@@ -9,8 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import { keys, values } from '@laufire/utils/lib';
 import { unique } from '@laufire/utils/predicates';
 import { map } from '@laufire/utils/collection';
-import { Dialog } from '@mui/material';
-import DialogTitle from '@mui/material/DialogTitle';
+import DialogBox from './StudentData/DialogBox';
 
 const TableHeader = (columns) =>
 	<TableRow>
@@ -49,26 +48,11 @@ const table = (context) => {
 	</Table>;
 };
 
-const message = (row) => `NAME: ${ row.StudentName }, English: ${ row.english }
-TAMIL: ${ row.tamil }, SCIENCE: ${ row.science }`;
-
-const TableContain = (context) => {
-	const { state: { selected, row }, state } = context;
-
-	console.log(state);
-
-	return <div>
+const TableContain = (context) =>
+	<div>
 		<TableContainer> {table(context)}
 		</TableContainer>
-		<Dialog
-			open={ selected }
-			onClose={ () =>
-				context.actions.handleClose() }
-		>
-			<DialogTitle>
-				{message(row)}</DialogTitle>
-		</Dialog>
+		<DialogBox { ...context }/>
 	</div>;
-};
 
 export default TableContain;
