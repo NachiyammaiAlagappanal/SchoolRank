@@ -49,7 +49,7 @@ const table = (context) => {
 };
 
 const TableContain = (context) =>
-	<div>
+	<div style={ { width: '100%' } }>
 		<TableContainer> {table(context)}
 		</TableContainer>
 		<DialogBox { ...context }/>
