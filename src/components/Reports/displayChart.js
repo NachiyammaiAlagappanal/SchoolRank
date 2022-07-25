@@ -1,10 +1,14 @@
 import PieChart from './PieChart';
 import HeatMap from './HeatMap';
 import mapData from '../../services/chartManager';
+import ColouredScatterPlot from './ColouredScatterPlot';
+import GroupedBarChart from './GroupedBarChart';
 
 const chartComponents = {
 	HeatMap,
 	PieChart,
+	ColouredScatterPlot,
+	GroupedBarChart,
 };
 
 const mapDatum = (context) => ({
