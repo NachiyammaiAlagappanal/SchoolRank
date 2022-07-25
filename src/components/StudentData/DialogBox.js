@@ -12,6 +12,7 @@ const DialogBox = (context) => {
 
 	return <div>
 		<Dialog
+			sx={ { display: 'flex', justifyContent: 'flex-start' } }
 			open={ selected }
 			onClose={ () =>
 				context.actions.handleClose() }
