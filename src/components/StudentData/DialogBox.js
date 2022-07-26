@@ -1,24 +1,28 @@
 import { map } from '@laufire/utils/collection';
 import { values } from '@laufire/utils/lib';
-import { Dialog, List } from '@mui/material';
+import { Dialog, Grid, List } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import { React } from 'react';
 
-const message = (row) => values(map(row, (value, key) => <List key={ key }>
-	{ `${ key.toUpperCase() }: ${ value }` }</List>));
+const message = (row) => values(map(row, (value, key) =>
+	<List
+		key={ key }
+		sx={ { pt: 0 } }
+	>{ `${ key.toUpperCase() }: ${ value }` }</List>));
 
 const DialogBox = (context) => {
 	const { state: { selected, row }} = context;
 
 	return <div>
 		<Dialog
-			sx={ { display: 'flex', justifyContent: 'flex-start' } }
 			open={ selected }
 			onClose={ () =>
 				context.actions.handleClose() }
 		>
-			<DialogTitle>
-				{message(row)}</DialogTitle>
+			<Grid container={ true }>
+				<DialogTitle>{message(row)}</DialogTitle>
+				<DialogTitle>BARCHART</DialogTitle>
+			</Grid>
 		</Dialog>
 	</div>;
 };
