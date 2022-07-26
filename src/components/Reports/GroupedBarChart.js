@@ -21,24 +21,21 @@ const GroupedBarChart = ({ config: { chartProps: { width, height }}, data }) => 
 					type: 'ordinal',
 				},
 				y: {
-					aggregate: 'average',
 					field: 'marks',
 					type: 'quantitative',
+					title: 'Marks Obtained',
 				},
 				xOffset: { field: 'subjectName' },
 				color: { field: 'subjectName' },
 			},
 		}, {
-			transform: [{
-				filter: { param: 'brush' },
-			}],
+			transform: [
+				{ filter: { param: 'brush' }},
+				{ calculate: '40', as: 'minMark' },
+			],
 			mark: 'rule',
 			encoding: {
-				y: {
-					aggregate: 'average',
-					field: 'marks',
-					type: 'quantitative',
-				},
+				y: { datum: 40 },
 				color: { value: 'firebrick' },
 				size: { value: 2 },
 			},
