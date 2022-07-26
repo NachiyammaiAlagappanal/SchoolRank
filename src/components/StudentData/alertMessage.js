@@ -48,11 +48,11 @@ const action = () =>
 		color="success"
 	><DoneIcon/> </Button>;
 
-const snackBar = (status, actions) =>
+const snackBar = (error, actions) =>
 	<Snackbar
 		key={ vertical + horizontal }
 		anchorOrigin={ { vertical, horizontal } }
-		open={ status }
+		open={ error }
 		onClose={ () => actions.editStatus() }
 		autoHideDuration={ 600 }
 		message="Successfully Saved"
@@ -60,12 +60,12 @@ const snackBar = (status, actions) =>
 	/>;
 
 const AlertMessage = (context) => {
-	const { state: { status, error }, actions } = context;
+	const { state: { error }, actions } = context;
 
 	return (
-		error !== null && status === false
+		error === false
 			? AlertBox(context)
-			:	snackBar(status, actions)
+			:	snackBar(error, actions)
 
 	);
 };

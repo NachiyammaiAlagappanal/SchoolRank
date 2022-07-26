@@ -24,8 +24,8 @@ const changingTab = (context) => ({
 const Toggle = (context) => ({
 	alignment: context.data,
 });
-const getAlert = (context) => ({
-	error: studentManager.checkInput(context),
+const getAlert = ({ state }) => ({
+	error: studentManager.isInputsValid(state),
 	close: true,
 });
 const close = (context) => ({

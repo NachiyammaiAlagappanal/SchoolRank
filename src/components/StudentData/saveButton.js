@@ -9,8 +9,8 @@ const SaveButton = (context) =>
 			variant="contained"
 			color="primary"
 			onClick={ () => {
-				context.actions.addStudent(context);
 				context.actions.getAlert(context);
+				context.actions.addStudent(context);
 			} }
 			size="large"
 		>Save</Button>
