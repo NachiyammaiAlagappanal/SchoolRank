@@ -12,18 +12,16 @@ const studentManager = {
 			...studentManager.checkAndAddStudent(context),
 		];
 	},
-	hasEmptyInputs: (state) => {
-		const details = [
-			state.name,
-			state.tamil,
-			state.english,
-			state.science,
-		];
+	hasEmptyInputs: (context) => {
+		const { state, config: { subjects }} = context;
 
-		return details.some((ele) => ele === '');
+		return ['name', ...subjects].find((ele) => state[ele] === '');
 	},
-	checkAndAddStudent: ({ state, config: { idMax, idMin }}) =>
-		(studentManager.isInputsValid(state)
+
+	checkAndAddStudent: (context) => {
+		const { state, config: { idMax, idMin }} = context;
+
+		return studentManager.isInputsValid(context)
 			?	[{
 				id: rndBetween(idMin, idMax),
 				StudentName: state.name,
@@ -31,9 +29,8 @@ const studentManager = {
 				english: state.english,
 				science: state.science,
 			}]
-			: []),
-
-	getStatus: ({ state }) => !studentManager.hasEmptyInputs(state),
+			: [];
+	},
 
 	checkValidation: (context) => {
 		const { data, state: { validation }, seed } = context;
@@ -45,12 +42,12 @@ const studentManager = {
 			? seed.validation
 			: { ...validation, [key]: true };
 	},
-	isInputsValid: (state) => {
-		const marks = [state.tamil, state.english, state.science];
+	isInputsValid: (context) => {
+		const { config: { subjects }, state } = context;
 
 		return (
-			marks.every((mark) => mark <= hundred && mark >= 0)
-		&& !studentManager.hasEmptyInputs(state)
+			subjects.every((mark) => state[mark] <= hundred && state[mark] >= 0)
+		&& !studentManager.hasEmptyInputs(context)
 		);
 	},
 	errorMessage: (error) => error && 'Marks range between 0 to 100 only',

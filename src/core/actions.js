@@ -7,7 +7,6 @@ const setStudentName = ({ data: name }) => ({
 const setMark = ({ data }) => data;
 
 const addStudent = (context) => ({
-	status: studentManager.getStatus(context),
 	studentDetails: studentManager.addStudent(context),
 	name: '',
 	english: '',
@@ -24,8 +23,8 @@ const changingTab = (context) => ({
 const Toggle = (context) => ({
 	alignment: context.data,
 });
-const getAlert = ({ state }) => ({
-	error: studentManager.isInputsValid(state),
+const getAlert = (context) => ({
+	error: studentManager.isInputsValid(context),
 	close: true,
 });
 const close = (context) => ({
