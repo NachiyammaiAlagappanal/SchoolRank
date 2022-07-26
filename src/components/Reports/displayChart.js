@@ -1,6 +1,6 @@
 import PieChart from './PieChart';
 import HeatMap from './HeatMap';
-import mapData from '../../services/chartManager';
+import chartManager from '../../services/chartManager';
 import ColouredScatterPlot from './ColouredScatterPlot';
 import GroupedBarChart from './GroupedBarChart';
 
@@ -12,14 +12,17 @@ const chartComponents = {
 };
 
 const mapDatum = (context) => ({
-	values: mapData(context),
+	values: chartManager.mapData(context),
 });
 
 const DisplayChart = (context) => {
 	const { state: { selectedChart }} = context;
+	const hasNoData = chartManager.hasNoData(context);
 
-	return selectedChart.map((chart) => chartComponents[chart]({ ...context,
-		data: mapDatum(context) }));
+	return hasNoData
+		? 'No Data'
+		: selectedChart.map((chart) => chartComponents[chart]({ ...context,
+			data: mapDatum(context) }));
 };
 
 export default DisplayChart;
