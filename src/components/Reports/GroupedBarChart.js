@@ -4,7 +4,7 @@ import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
 
-const GroupedBarChart = ({ config: { chartProps: { width, height }}, data }) => {
+const GroupedBarChart = ({ config: { chartProps: { width, height }, hundred }, data }) => {
 	const spec = {
 		width: width,
 		height: height,
@@ -24,6 +24,7 @@ const GroupedBarChart = ({ config: { chartProps: { width, height }}, data }) => 
 					field: 'marks',
 					type: 'quantitative',
 					title: 'Marks Obtained',
+					scale: { domain: [0, hundred] },
 				},
 				xOffset: { field: 'subjectName' },
 				color: { field: 'subjectName' },

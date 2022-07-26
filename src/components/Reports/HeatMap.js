@@ -3,7 +3,8 @@ import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
 
-const HeatMap = ({ config: { chartProps: { width, height }}, data }) => {
+const HeatMap = ({ config: { chartProps:
+	{ width, height }, hundred }, data }) => {
 	const spec = {
 		description: 'A Heat Map .',
 		width: width,
@@ -40,6 +41,7 @@ const HeatMap = ({ config: { chartProps: { width, height }}, data }) => {
 					param: 'brush',
 					field: 'marks',
 					type: 'quantitative',
+					scale: { domain: [0, hundred] },
 				},
 			},
 		},

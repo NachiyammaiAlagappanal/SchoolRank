@@ -4,7 +4,7 @@ import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
 
-const ColouredScatterPlot = ({ config: { chartProps: { width, height }}, data }) => {
+const ColouredScatterPlot = ({ config: { chartProps: { width, height }, hundred }, data }) => {
 	const spec = {
 		width: width,
 		height: height,
@@ -19,6 +19,7 @@ const ColouredScatterPlot = ({ config: { chartProps: { width, height }}, data })
 			y: {
 				field: 'marks',
 				type: 'quantitative',
+				scale: { domain: [0, hundred] },
 			},
 			color: { field: 'studentName', type: 'nominal' },
 			shape: { field: 'studentName', type: 'nominal' },

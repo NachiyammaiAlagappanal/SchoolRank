@@ -7,6 +7,7 @@ const config = {
 		width: 300,
 		height: 300,
 	},
+	hundred: 100,
 };
 
 export default config;
