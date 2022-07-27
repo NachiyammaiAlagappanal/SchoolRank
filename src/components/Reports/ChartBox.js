@@ -12,8 +12,8 @@ const chartComponents = {
 	GroupedBarChart,
 };
 
-const mapDatum = (context) => ({
-	values: chartManager.mapData(context),
+const chartData = (context) => ({
+	values: chartManager.getAllStudentData(context),
 });
 
 const ChartBox = (context) => {
@@ -23,7 +23,7 @@ const ChartBox = (context) => {
 
 	return hasNoData
 		? 'No Data'
-		: <SelectedChart { ...{ ...context,	data: mapDatum(context) } }/>;
+		: <SelectedChart { ...{ ...context,	data: chartData(context) } }/>;
 };
 
 export default ChartBox;

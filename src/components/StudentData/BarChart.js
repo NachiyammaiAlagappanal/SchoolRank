@@ -2,9 +2,14 @@
 import React from 'react';
 import { VegaLite } from 'react-vega';
 import { rndString } from '@laufire/utils/random';
+import chartManager from '../../services/chartManager';
 
-const BarChart = ({ config: { hundred }, data }) => {
+const BarChart = (context) => {
+	const { config: { hundred }} = context;
 	const spec = {
+		data: {
+			values: chartManager.getStudentData(context),
+		},
 		width: 200,
 		height: 200,
 		transform: [{ flatten: ['subjectName', 'marks'] }],
@@ -27,11 +32,10 @@ const BarChart = ({ config: { hundred }, data }) => {
 				size: { value: 2 },
 			},
 		}],
-		data: { name: 'values' },
 	};
 	const actions = false;
 
-	return <VegaLite key={ rndString() }{ ...{ spec, data, actions } }/>;
+	return <VegaLite key={ rndString() }{ ...{ spec, actions } }/>;
 };
 
 export default BarChart;
