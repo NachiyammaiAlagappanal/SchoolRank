@@ -9,11 +9,7 @@ const BarChart = ({ config: { hundred }, data }) => {
 		height: 200,
 		transform: [{ flatten: ['subjectName', 'marks'] }],
 		layer: [{
-			params: [{
-				name: 'brush',
-				select: { type: 'interval', encodings: ['x'] },
-			}],
-			mark: { type: 'bar', tooltip: true },
+			mark: { type: 'bar' },
 			encoding: {
 				x: { field: 'subjectName',
 					type: 'nominal',
@@ -24,10 +20,6 @@ const BarChart = ({ config: { hundred }, data }) => {
 					title: 'Mark Obtained' },
 			},
 		}, {
-			transform: [
-				{ filter: { param: 'brush' }},
-				{ calculate: '40', as: 'minMark' },
-			],
 			mark: 'rule',
 			encoding: {
 				y: { datum: 40 },

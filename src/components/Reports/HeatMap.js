@@ -24,23 +24,25 @@ const HeatMap = ({ config: { chartProps:
 				select: 'interval',
 			},
 		],
-		mark: 'rect',
+		mark: { type: 'rect', tooltip: true },
 		encoding: {
 			x: {
 				field: 'subjectName',
 				type: 'nominal',
+				title: 'Subject',
 			},
 			y: {
 				field: 'studentName',
 				type: 'nominal',
+				title: 'Student Name',
 			},
 			color: {
 				aggregate: 'max',
-				legend: { title: 'marks' },
 				condition: {
 					param: 'brush',
 					field: 'marks',
 					type: 'quantitative',
+					title: 'Marks',
 					scale: { domain: [0, hundred] },
 				},
 			},

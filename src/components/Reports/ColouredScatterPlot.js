@@ -9,16 +9,17 @@ const ColouredScatterPlot = ({ config: { chartProps: { width, height }, hundred 
 		width: width,
 		height: height,
 		transform: [{ flatten: ['subjectName', 'marks'] }],
-		mark: 'point',
+		mark: { type: 'point', tooltip: true },
 		encoding: {
 			x: {
 				field: 'subjectName',
 				type: 'nominal',
-				scale: { zero: false },
+				title: 'Subject',
 			},
 			y: {
 				field: 'marks',
 				type: 'quantitative',
+				title: 'Marks Obtained',
 				scale: { domain: [0, hundred] },
 			},
 			color: { field: 'studentName', type: 'nominal' },

@@ -14,11 +14,12 @@ const GroupedBarChart = ({ config: { chartProps: { width, height }, hundred }, d
 				name: 'brush',
 				select: { type: 'interval', encodings: ['x'] },
 			}],
-			mark: 'bar',
+			mark: { type: 'bar', tooltip: true },
 			encoding: {
 				x: {
 					field: 'studentName',
 					type: 'ordinal',
+					title: 'Student Name',
 				},
 				y: {
 					field: 'marks',
