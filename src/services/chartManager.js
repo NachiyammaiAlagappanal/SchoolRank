@@ -24,6 +24,11 @@ const chartManager = {
 				.filterMark({ ...context, data: studentDetails }).length === 0
 		);
 	},
+	rowMapData: ({ config, state: { row }}) =>
+		({
+			subjectName: config.subjects,
+			marks: [row.tamil, row.english, row.science],
+		}),
 };
 
 export default chartManager;
