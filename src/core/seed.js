@@ -6,9 +6,9 @@ const seed = {
 	science: '',
 	studentDetails: [],
 	range: {
-		english: [20, 30],
-		tamil: [20, 30],
-		science: [60, 80],
+		english: [0, 100],
+		tamil: [0, 100],
+		science: [0, 100],
 	},
 	value: 0,
 	alignment: 'Table',
