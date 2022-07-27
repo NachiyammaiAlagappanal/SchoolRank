@@ -27,8 +27,7 @@ const DialogBox = (context) => {
 				context.actions.handleClose() }
 		>
 			<Grid container={ true }>
-				<DialogTitle>{message(row)}</DialogTitle>
-				<DialogTitle>{barChart(context)}</DialogTitle>
+				<DialogTitle>{message(row)}{barChart(context)}</DialogTitle>
 			</Grid>
 		</Dialog>
 	</div>;
