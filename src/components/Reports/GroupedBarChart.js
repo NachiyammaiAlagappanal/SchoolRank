@@ -28,7 +28,7 @@ const GroupedBarChart = ({ config: { chartProps: { width, height }, hundred }, d
 					scale: { domain: [0, hundred] },
 				},
 				xOffset: { field: 'subjectName' },
-				color: { field: 'subjectName' },
+				color: { field: 'subjectName', title: 'Subject' },
 			},
 		}, {
 			transform: [

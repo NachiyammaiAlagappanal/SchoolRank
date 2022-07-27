@@ -23,7 +23,7 @@ const ColouredScatterPlot = ({ config: { chartProps: { width, height }, hundred 
 				scale: { domain: [0, hundred] },
 			},
 			color: { field: 'studentName', type: 'nominal' },
-			shape: { field: 'studentName', type: 'nominal' },
+			shape: { field: 'studentName', type: 'nominal', title: 'Student Name' },
 		},
 		data: { name: 'values' },
 	};
