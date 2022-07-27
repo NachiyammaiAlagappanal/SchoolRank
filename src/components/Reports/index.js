@@ -1,11 +1,11 @@
 import { React } from 'react';
 import DropDownBox from './dropDownBox';
-import DisplayChart from './displayChart';
+import ChartBox from './ChartBox';
 
 const Reports = (context) =>
 	<div>
 		<DropDownBox { ...context }/>
-		<DisplayChart { ...context }/>
+		<ChartBox { ...context }/>
 	</div>;
 
 export default Reports;

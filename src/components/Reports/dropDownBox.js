@@ -11,7 +11,6 @@ const DropDownBox = (context) => {
 				id="dropdown-list"
 				value={ state.selectedChart }
 				label="ChartTypes"
-				multiple={ true }
 				autoWidth={ true }
 				onChange={ (evt) =>
 					context.actions.setChart(evt.target.value) }

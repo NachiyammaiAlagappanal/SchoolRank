@@ -1,3 +1,4 @@
+import { React } from 'react';
 import PieChart from './PieChart';
 import HeatMap from './HeatMap';
 import chartManager from '../../services/chartManager';
@@ -15,14 +16,14 @@ const mapDatum = (context) => ({
 	values: chartManager.mapData(context),
 });
 
-const DisplayChart = (context) => {
+const ChartBox = (context) => {
 	const { state: { selectedChart }} = context;
+	const SelectedChart = chartComponents[selectedChart];
 	const hasNoData = chartManager.hasNoData(context);
 
 	return hasNoData
 		? 'No Data'
-		: selectedChart.map((chart) => chartComponents[chart]({ ...context,
-			data: mapDatum(context) }));
+		: <SelectedChart { ...{ ...context,	data: mapDatum(context) } }/>;
 };
 
-export default DisplayChart;
+export default ChartBox;

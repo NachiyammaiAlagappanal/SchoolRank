@@ -14,7 +14,7 @@ const seed = {
 	alignment: 'Table',
 	error: null,
 	close: true,
-	selectedChart: [],
+	selectedChart: 'HeatMap',
 	validation: { english: false,
 		tamil: false,
 		science: false },
