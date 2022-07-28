@@ -4,7 +4,20 @@ const seed = {
 	english: '',
 	tamil: '',
 	science: '',
-	studentDetails: [],
+	studentDetails: [{
+		id: 1000,
+		StudentName: 'Shalini',
+		tamil: 60,
+		english: 75,
+		science: 90,
+	},
+	{
+		id: 1001,
+		StudentName: 'Yazhini',
+		tamil: 75,
+		english: 92,
+		science: 80,
+	}],
 	range: {
 		english: [0, 100],
 		tamil: [0, 100],

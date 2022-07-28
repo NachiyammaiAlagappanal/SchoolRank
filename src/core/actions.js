@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import FilterManager from '../services/FilterManager';
 import studentManager from '../services/studentManager';
 
@@ -6,15 +7,9 @@ const setStudentName = ({ data: name }) => ({
 });
 const setMark = ({ data }) => data;
 
-const addStudent = (context) => ({
-	studentDetails: studentManager.addStudent(context),
-});
-const clearInputs = () => ({
-	name: '',
-	tamil: '',
-	english: '',
-	science: '',
-});
+const addStudent = (context) =>
+	studentManager.addStudent(context);
+
 const changingRange = (context) => ({
 	range: FilterManager.updateRange(context),
 });
@@ -65,7 +60,6 @@ const actions = {
 	checkValidation,
 	unSelected,
 	handleClose,
-	clearInputs,
 };
 
 export default actions;
