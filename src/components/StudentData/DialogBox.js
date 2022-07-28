@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { React } from 'react';
 import BarChart from './BarChart';
 
-const message = (row) => values(map(row, (value, key) =>
+const PopUpBox = (row) => values(map(row, (value, key) =>
 	<List
 		key={ key }
 		sx={ { pt: 0 } }
@@ -21,7 +21,7 @@ const DialogBox = (context) => {
 				context.actions.handleClose() }
 		>
 			<Grid container={ true }>
-				<DialogTitle>{message(row)}</DialogTitle>
+				<DialogTitle>{PopUpBox(row)}</DialogTitle>
 				<DialogTitle><BarChart { ...context }/></DialogTitle>
 			</Grid>
 		</Dialog>

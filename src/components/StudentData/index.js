@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Inputs from './Input';
 import TableContain from '../Table';
-import Message from './message';
+import Status from './Status';
 import { Box } from '@mui/material';
 
 const StudentData = (context) => {
@@ -12,7 +12,7 @@ const StudentData = (context) => {
 			Students Database - Add Student Details</h3>
 		<Inputs { ...context }/>
 		<TableContain { ...{ ...context, data: { content: studentDetails }} }/>
-		{ Message(context) }
+		{ Status(context) }
 	</Box>;
 };
 

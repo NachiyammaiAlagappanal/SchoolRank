@@ -6,8 +6,8 @@ import { Box } from '@mui/material';
 
 const App = (context) =>
 	<Box className="App" role="App">
-		<Box>{Header()}</Box>
-		{TabFunction(context)}
+		<Header/>
+		<TabFunction { ...context }/>
 	</Box>;
 
 export default App;

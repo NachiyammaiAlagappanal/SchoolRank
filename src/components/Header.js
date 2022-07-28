@@ -1,8 +1,9 @@
+import { Box } from '@mui/material';
 import { React } from 'react';
 
 const Header = () =>
-	<div>
+	<Box>
 		<h1 className="center">SCHOOL MARK LIST</h1>
-	</div>;
+	</Box>;
 
 export default Header;

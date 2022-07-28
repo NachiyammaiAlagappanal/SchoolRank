@@ -1,7 +1,7 @@
 import AlertBox from './AlertBox';
 import snackBar from './snackBar';
 
-const Message = (context) => {
+const Status = (context) => {
 	const { state: { error }, actions } = context;
 
 	return (
@@ -12,4 +12,4 @@ const Message = (context) => {
 	);
 };
 
-export default Message;
+export default Status;

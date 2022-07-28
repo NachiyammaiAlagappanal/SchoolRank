@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import { Table, TableCell, TableHead, TableRow } from '@mui/material';
 import SaveButton from './saveButton';
 import MarksInput from './MarksInput';
+import DialogBox from './DialogBox';
 
 const studentDetails = (context) =>
 	<TableRow>
@@ -27,9 +28,10 @@ const studentDetails = (context) =>
 const Inputs = (context) =>
 
 	<Box>
-		<Table className="table">
+		<Table>
 			<TableHead>{ studentDetails(context)}</TableHead>
 		</Table>
+		<DialogBox { ...context }/>
 	</Box>;
 
 export default Inputs;

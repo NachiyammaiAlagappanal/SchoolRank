@@ -9,7 +9,6 @@ import TableRow from '@mui/material/TableRow';
 import { keys, values } from '@laufire/utils/lib';
 import { unique } from '@laufire/utils/predicates';
 import { map } from '@laufire/utils/collection';
-import DialogBox from './StudentData/DialogBox';
 
 const TableHeader = (columns) =>
 	<TableRow>
@@ -52,7 +51,7 @@ const TableContain = (context) =>
 	<div style={ { width: '100%' } }>
 		<TableContainer> {table(context)}
 		</TableContainer>
-		<DialogBox { ...context }/>
+
 	</div>;
 
 export default TableContain;
