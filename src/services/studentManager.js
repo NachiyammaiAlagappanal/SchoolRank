@@ -21,6 +21,7 @@ const studentManager = {
 	checkAndAddStudent: (context) => {
 		const { state, config: { idMax, idMin }} = context;
 
+		studentManager.dataOnSave(context);
 		return studentManager.isInputsValid(context)
 			?	[{
 				id: rndBetween(idMin, idMax),
@@ -42,6 +43,10 @@ const studentManager = {
 			? seed.validation
 			: { ...validation, [key]: true };
 	},
+	dataOnSave: (context) => (studentManager.isInputsValid(context)
+		? context.actions.clearInputs()
+		: []),
+
 	isInputsValid: (context) => {
 		const { config: { subjects }, state } = context;
 
