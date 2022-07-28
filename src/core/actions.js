@@ -8,9 +8,11 @@ const setMark = ({ data }) => data;
 
 const addStudent = (context) => ({
 	studentDetails: studentManager.addStudent(context),
+});
+const clearInputs = () => ({
 	name: '',
-	english: '',
 	tamil: '',
+	english: '',
 	science: '',
 });
 const changingRange = (context) => ({
@@ -63,6 +65,7 @@ const actions = {
 	checkValidation,
 	unSelected,
 	handleClose,
+	clearInputs,
 };
 
 export default actions;
