@@ -32,20 +32,19 @@
 	border-radius: 0.5rem;
 }
 .center{
-	color: white;
+	color: #1976d2 ;
+	background-color: white;
 	text-align: center ;
 }
 .container{
 	background-color: white;
 	padding: 1rem;
-	margin: 0.5rem;
-	border-radius: 1rem;
-	border-color: #1976d2;
-	border-width: 1rem;
-	border-style: solid;
 	flex: 2;
 }
 .table{
  table-layout: fixed;
  width: '100%';
+}
+.PageStyle{
+	background-color: pink;
 }

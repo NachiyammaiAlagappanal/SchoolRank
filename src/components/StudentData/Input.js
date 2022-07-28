@@ -13,8 +13,8 @@ const studentDetails = (context) =>
 				fullWidth={ true }
 				label="StudentName"
 				id="name"
-				focused={ true }
 				color="primary"
+				variant="standard"
 				value={ context.state.name }
 				onChange={ (evt) =>
 					context.actions

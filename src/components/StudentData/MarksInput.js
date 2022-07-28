@@ -9,9 +9,9 @@ const MarksInput = (context) => {
 		<TableCell 	key={ subject } align="center">
 			<TextField
 				error={ validation[subject] }
-				label={ subject.toUpperCase() }
+				label={ subject }
 				id={ subject }
-				focused={ true }
+				variant="standard"
 				type="number"
 				color="primary"
 				value={ state[subject] }
