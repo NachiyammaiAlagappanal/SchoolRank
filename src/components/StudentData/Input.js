@@ -1,7 +1,7 @@
 import { React } from 'react';
 import TextField from '@mui/material/TextField';
 import { Table, TableCell, TableHead,
-	TableRow, Grid, Paper } from '@mui/material';
+	TableRow, Grid } from '@mui/material';
 import SaveButton from './saveButton';
 import MarksInput from './MarksInput';
 import DialogBox from './DialogBox';
@@ -26,17 +26,11 @@ const studentDetails = (context) =>
 	</TableRow>;
 
 const Inputs = (context) =>
-	<Paper
-		elevation={ 0 }
-		variant="outlined"
-		sx={ { padding: 2 } }
-	>
-		<Grid padding={ 5 }>
-			<Table>
-				<TableHead>{ studentDetails(context)}</TableHead>
-			</Table>
-			<DialogBox { ...context }/>
-		</Grid>
-	</Paper>;
+	<Grid paddingBottom={ 8 }>
+		<Table>
+			<TableHead>{ studentDetails(context)}</TableHead>
+		</Table>
+		<DialogBox { ...context }/>
+	</Grid>;
 
 export default Inputs;

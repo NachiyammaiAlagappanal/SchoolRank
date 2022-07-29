@@ -2,7 +2,7 @@ import { Toolbar } from '@mui/material';
 import { React } from 'react';
 
 const displayDesktop = () => <Toolbar className="center">
-	SCHOOL DATABASE</Toolbar>;
+	STUDENT DATABASE</Toolbar>;
 
 const Header = () =>
 	<header>
