@@ -8,8 +8,6 @@ const StudentData = (context) => {
 	const { state: { studentDetails }} = context;
 
 	return <Box>
-		<h3>
-			Students Database - Add Student Details</h3>
 		<Inputs { ...context }/>
 		<TableContain { ...{ ...context, data: { content: studentDetails }} }/>
 		{ Status(context) }
