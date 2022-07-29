@@ -17,7 +17,7 @@ const Menu = (context) => {
 	const { state: { value }} = context;
 
 	return (
-		<Toolbar backgroundColor="blue">
+		<Toolbar sx={ { backgroundColor: '#1976d2', color: 'white' } }>
 			<Tabs
 				orientation="vertical"
 				value={ value }
@@ -38,7 +38,7 @@ const TabFunction = (context) => {
 	const { state: { value }} = context;
 
 	return (
-		<Box sx={ { display: 'flex' } }>
+		<Box sx={ { display: 'flex', height: '730px' } }>
 			<Menu { ...context }/>
 			<Paper/>
 			<Paper elevation={ 24 }/>

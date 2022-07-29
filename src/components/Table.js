@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import { keys, values } from '@laufire/utils/lib';
 import { unique } from '@laufire/utils/predicates';
 import { map } from '@laufire/utils/collection';
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 
 const TableHeader = (columns) =>
 	<TableRow>
@@ -50,6 +50,7 @@ const table = (context) => {
 
 const TableContain = (context) =>
 	<Box sx={ { width: '100%' } }>
+		<Paper elevation={ 10 }/>
 		<TableContainer> {table(context)}
 		</TableContainer>
 	</Box>;
