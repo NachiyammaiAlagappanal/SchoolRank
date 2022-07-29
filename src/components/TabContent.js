@@ -48,7 +48,7 @@ const TabFunction = (context) => {
 					<StudentData { ...context }/>
 				</TabPanel>
 				<TabPanel value={ value } index={ 1 }>
-					{ SliderAndToggle(context)}
+					<SliderAndToggle { ...context }/>
 				</TabPanel>
 			</Box>
 		</Box>

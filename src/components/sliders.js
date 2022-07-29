@@ -4,7 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { map } from '@laufire/utils/collection';
-import { Grid, Slider } from '@mui/material';
+import { Grid, Slider, Paper } from '@mui/material';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Poll, TableView } from '@mui/icons-material';
@@ -82,9 +82,13 @@ const SliderAndToggle = (context) =>
 		{Toggle(context)}
 		<Table className="table">
 			<TableHead>{sliderFunction(context)}</TableHead></Table>
-		<Grid container={ true } justifyContent="center">
-			{checkToggle(context)}
-		</Grid>
+		<Paper
+			elevation={ 10 }
+			sx={ { margin: '8', padding: '2' } }
+		>
+			<Grid container={ true } justifyContent="center">
+				{checkToggle(context)}
+			</Grid>		</Paper>
 	</Grid>;
 
 export default SliderAndToggle;
