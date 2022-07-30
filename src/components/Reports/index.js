@@ -1,5 +1,5 @@
 import { React } from 'react';
-import DropDownBox from './dropDownBox';
+import DropDownBox from './DropDownBox';
 import ChartBox from './ChartBox';
 
 const Reports = (context) =>

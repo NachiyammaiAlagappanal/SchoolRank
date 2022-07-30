@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import SliderAndToggle from './sliders';
+import SliderAndToggle from './Sliders';
 import Data from './Data';
 import { Box, Toolbar } from '@mui/material';
 import Header from './Header';

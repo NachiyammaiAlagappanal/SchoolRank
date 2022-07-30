@@ -12,7 +12,7 @@ import StudentDataTable from './Data/StudentDataTable';
 import FilterManager from '../services/FilterManager';
 import Reports from './Reports';
 
-const sliders = (context) => {
+const Sliders = (context) => {
 	const { state: { range }, data: subject } = context;
 
 	return (
@@ -38,7 +38,7 @@ const sliderFunction = (context) => {
 			{ map(subjects, (subject) =>
 				<TableCell
 					key={ subject }
-				>{sliders({ ...context,
+				>{Sliders({ ...context,
 						data: subject })}</TableCell>)}</TableRow>);
 };
 
