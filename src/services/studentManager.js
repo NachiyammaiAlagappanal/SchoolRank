@@ -49,7 +49,7 @@ const studentManager = {
 
 		return ['name', ...subjects].find((ele) => state[ele] === '');
 	},
-	checkValidation: (context) => {
+	validateMarks: (context) => {
 		const { data, state: { validation }, seed } = context;
 
 		const key = keys(data);
@@ -59,7 +59,7 @@ const studentManager = {
 			? seed.validation
 			: { ...validation, [key]: true };
 	},
-	errorMessage: (error) => error && 'Marks range between 0 to 100 only',
+	setErrorMessage: (error) => error && 'Marks range between 0 to 100 only',
 };
 
 export default studentManager;

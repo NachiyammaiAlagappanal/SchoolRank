@@ -1,10 +1,10 @@
 import { React } from 'react';
-import Inputs from './Input';
-import TableContain from '../Table';
-import Status from './Status';
+import Inputs from './Inputs';
+import StudentDataTable from './StudentDataTable';
+import StatusUpdate from './StatusUpdate';
 import { Box, Paper, Grid } from '@mui/material';
 
-const StudentData = (context) => {
+const Data = (context) => {
 	const { state: { studentDetails }} = context;
 
 	return <Box padding={ 5 }>
@@ -14,12 +14,12 @@ const StudentData = (context) => {
 			sx={ { margin: '8', padding: '5' } }
 		>
 			<Grid container={ true } justifyContent="center">
-				<TableContain { ...{ ...context,
+				<StudentDataTable { ...{ ...context,
 					data: { content: studentDetails }} }
 				/></Grid>
-			{ Status(context) }
+			<StatusUpdate { ...context }/>
 		</Paper>
 	</Box>;
 };
 
-export default StudentData;
+export default Data;

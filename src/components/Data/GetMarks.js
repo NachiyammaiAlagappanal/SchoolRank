@@ -2,7 +2,7 @@ import { TableCell, TextField } from '@mui/material';
 import { React } from 'react';
 import studentManager from '../../services/studentManager';
 
-const MarksInput = (context) => {
+const GetMarks = (context) => {
 	const { state: { validation }, state, actions, config } = context;
 
 	return config.subjects.map((subject) =>
@@ -17,10 +17,11 @@ const MarksInput = (context) => {
 				value={ state[subject] }
 				onChange={ (evt) => {
 					actions.setMark({ [subject]: evt.target.value });
-					actions.checkValidation({ [subject]: evt.target.value });
+					actions.validateMarks({ [subject]: evt.target.value });
 				} }
-				helperText={ studentManager.errorMessage(validation[subject]) }
+				helperText={ studentManager
+					.setErrorMessage(validation[subject]) }
 			/></TableCell>);
 };
 
-export default MarksInput;
+export default GetMarks;

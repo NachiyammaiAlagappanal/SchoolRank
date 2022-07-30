@@ -4,7 +4,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 
-const Message = (context) =>
+const AlertBox = (context) =>
 	<Alert
 		action={
 			<IconButton
@@ -24,7 +24,7 @@ const Message = (context) =>
 		Invalid Input — <strong>check it out!</strong>
 	</Alert>;
 
-const AlertBox = (context) => {
+const AlertMessage = (context) => {
 	const { state: { close }} = context;
 
 	return (
@@ -32,8 +32,8 @@ const AlertBox = (context) => {
 			sx={ { width: '40%', margin: 'auto' } }
 			spacing={ 2 }
 		>
-			<Collapse in={ close }>{Message(context)}</Collapse>
+			<Collapse in={ close }>{AlertBox(context)}</Collapse>
 		</Stack>);
 };
 
-export default AlertBox;
+export default AlertMessage;

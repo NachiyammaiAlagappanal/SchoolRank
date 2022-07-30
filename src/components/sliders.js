@@ -8,7 +8,7 @@ import { Grid, Slider, Paper } from '@mui/material';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Poll, TableView } from '@mui/icons-material';
-import TableContain from './Table';
+import StudentDataTable from './Data/StudentDataTable';
 import FilterManager from '../services/FilterManager';
 import Reports from './Reports';
 
@@ -71,7 +71,7 @@ const checkToggle = (context) => {
 		data: studentDetails });
 
 	return alignment === 'Table'
-		? TableContain({ ...context, data: {
+		? StudentDataTable({ ...context, data: {
 			content: filterMark,
 		}})
 		: Reports(context);

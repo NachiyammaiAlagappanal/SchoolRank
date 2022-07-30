@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import FilterManager from '../services/FilterManager';
 import studentManager from '../services/studentManager';
 
@@ -16,7 +15,6 @@ const changingRange = (context) => ({
 const changingTab = (context) => ({
 	value: context.data,
 });
-
 const Toggle = (context) => ({
 	alignment: context.data,
 });
@@ -27,15 +25,13 @@ const getAlert = (context) => ({
 const close = (context) => ({
 	close: context.data,
 });
-
 const setChart = (context) => ({
 	selectedChart: context.data,
 });
-const checkValidation = (context) => ({
-	validation: studentManager.checkValidation(context),
+const validateMarks = (context) => ({
+	validation: studentManager.validateMarks(context),
 });
 const editStatus = () => ({
-	status: false,
 	error: null,
 });
 const unSelected = (context) => ({
@@ -57,7 +53,7 @@ const actions = {
 	close,
 	editStatus,
 	setChart,
-	checkValidation,
+	validateMarks,
 	unSelected,
 	handleClose,
 };

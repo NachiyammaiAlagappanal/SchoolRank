@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { React } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -29,7 +28,6 @@ const TableContent = (filterMark, actions) =>
 				key={ j }
 				align="center"
 				onClick={ () => {
-					console.log(row);
 					actions.unSelected(row);
 				} }
 			>{ele} </TableCell>)
@@ -48,10 +46,10 @@ const table = (context) => {
 	</Table>;
 };
 
-const TableContain = (context) =>
+const StudentDataTable = (context) =>
 	<Box sx={ { width: '100%' } }>
 		<TableContainer> {table(context)}
 		</TableContainer>
 	</Box>;
 
-export default TableContain;
+export default StudentDataTable;
