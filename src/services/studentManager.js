@@ -5,10 +5,10 @@ const hundred = 100;
 
 const studentManager = {
 	addStudent: (context) => ({
-		...studentManager.setStudentDetails(context),
+		...studentManager.getAllStudentsData(context),
 	}),
 
-	setStudentDetails: (context) => {
+	getAllStudentsData: (context) => {
 		const { state, config: { idMax, idMin }} = context;
 
 		return studentManager.isInputsValid(context)
@@ -49,7 +49,7 @@ const studentManager = {
 
 		return ['name', ...subjects].find((ele) => state[ele] === '');
 	},
-	validateMarks: (context) => {
+	getValidationStatus: (context) => {
 		const { data, state: { validation }, seed } = context;
 
 		const key = keys(data);

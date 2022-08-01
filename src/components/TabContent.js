@@ -22,7 +22,7 @@ const MenuBar = (context) => {
 				orientation="vertical"
 				value={ value }
 				onChange={ (event, data) => context.actions
-					.changingTab(data) }
+					.toggleMenu(data) }
 				textColor="inherit"
 				sx={ { borderRight: 1, borderColor: 'divider' } }
 			>

@@ -9,27 +9,27 @@ const setMark = ({ data }) => data;
 const addStudent = (context) =>
 	studentManager.addStudent(context);
 
-const changingRange = (context) => ({
+const updateRange = (context) => ({
 	range: FilterManager.updateRange(context),
 });
-const changingTab = (context) => ({
+const toggleMenu = (context) => ({
 	value: context.data,
 });
-const Toggle = (context) => ({
+const toggleTab = (context) => ({
 	alignment: context.data,
 });
 const getAlert = (context) => ({
 	error: studentManager.isInputsValid(context),
 	close: true,
 });
-const close = (context) => ({
+const closeAlertMessage = (context) => ({
 	close: context.data,
 });
 const setChart = (context) => ({
 	selectedChart: context.data,
 });
-const validateMarks = (context) => ({
-	validation: studentManager.validateMarks(context),
+const setValidation = (context) => ({
+	validation: studentManager.getValidationStatus(context),
 });
 const editStatus = () => ({
 	error: null,
@@ -46,14 +46,14 @@ const actions = {
 	setStudentName,
 	setMark,
 	addStudent,
-	changingRange,
-	changingTab,
-	Toggle,
+	updateRange,
+	toggleMenu,
+	toggleTab,
 	getAlert,
-	close,
+	closeAlertMessage,
 	editStatus,
 	setChart,
-	validateMarks,
+	setValidation,
 	unSelected,
 	handleClose,
 };
