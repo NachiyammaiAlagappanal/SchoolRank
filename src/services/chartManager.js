@@ -3,7 +3,7 @@ import { map } from '@laufire/utils/collection';
 import FilterManager from './FilterManager';
 
 const chartManager = {
-	getAllStudentData: (context) => {
+	getFilteredStudentsData: (context) => {
 		const { config, state: { studentDetails }} = context;
 		const studentData = FilterManager
 			.filterMark({ ...context, data: studentDetails });
@@ -11,7 +11,7 @@ const chartManager = {
 		return (
 			map(studentData, (student) => ({
 				studentName: student.StudentName.toUpperCase(),
-				subjectName: chartManager.getSubjectLabels(config.subjects),
+				subjectName: chartManager.getSubjects(config.subjects),
 				marks: [student.tamil, student.english, student.science],
 			}))
 		);
@@ -24,10 +24,11 @@ const chartManager = {
 				.filterMark({ ...context, data: studentDetails }).length === 0
 		);
 	},
-	getSubjectLabels: (subjects) => subjects.map((ele) => ele.toUpperCase()),
+	getSubjects: (subjects) => subjects.map((ele) => ele.toUpperCase()),
+
 	getStudentData: ({ config, state: { row }}) =>
 		({
-			subjectName: chartManager.getSubjectLabels(config.subjects),
+			subjectName: chartManager.getSubjects(config.subjects),
 			marks: [row.tamil, row.english, row.science],
 		}),
 };
