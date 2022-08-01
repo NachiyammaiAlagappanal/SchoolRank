@@ -13,7 +13,7 @@ const chartComponents = {
 };
 
 const chartData = (context) => ({
-	values: chartManager.getAllStudentData(context),
+	values: chartManager.getFilteredStudentsData(context),
 });
 
 const ChartBox = (context) => {
