@@ -30,7 +30,7 @@ const GetStudentDetails = (context) => {
 
 const Inputs = (context) =>
 	<Grid paddingBottom={ 8 }>
-		<Table>
+		<Table className="table">
 			<TableHead>{ GetStudentDetails(context)}</TableHead>
 		</Table>
 		<DialogBox { ...context }/>
