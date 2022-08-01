@@ -59,7 +59,6 @@ const studentManager = {
 			? seed.validation
 			: { ...validation, [key]: true };
 	},
-	setErrorMessage: (error) => error && 'Marks range between 0 to 100 only',
 };
 
 export default studentManager;
