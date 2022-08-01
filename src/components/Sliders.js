@@ -20,7 +20,7 @@ const Sliders = (context) => {
 			getAriaLabel={ () => 'Mark range' }
 			value={ range[subject] }
 			onChange={ (evt) => context.actions
-				.changingRange({ [subject]: evt.target.value }) }
+				.updateRange({ [subject]: evt.target.value }) }
 			color="primary"
 			valueLabelDisplay="auto"
 			min={ 0 }
@@ -50,16 +50,16 @@ const Toggling = (alignment, actions) =>
 	>
 		<ToggleButton
 			value="Table"
-			onClick={ () => actions.Toggle('Table') }
+			onClick={ () => actions.toggleTab('Table') }
 		>
 			<TableView/></ToggleButton>
 		<ToggleButton
 			value="Plot"
-			onClick={ () => actions.Toggle('Plot') }
+			onClick={ () => actions.toggleTab('Plot') }
 		><Poll/></ToggleButton>
 	</ToggleButtonGroup>;
 
-const Toggle = (context) => {
+const ToggleTab = (context) => {
 	const { state: { alignment }, actions } = context;
 
 	return Toggling(alignment, actions);
@@ -79,7 +79,7 @@ const checkToggle = (context) => {
 
 const SliderAndToggle = (context) =>
 	<Grid padding={ 5 }>
-		{Toggle(context)}
+		{ToggleTab(context)}
 		<Table className="table">
 			<TableHead>{sliderFunction(context)}</TableHead></Table>
 		<Paper

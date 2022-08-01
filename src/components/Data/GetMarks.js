@@ -17,7 +17,7 @@ const GetMarks = (context) => {
 				value={ state[subject] }
 				onChange={ (evt) => {
 					actions.setMark({ [subject]: evt.target.value });
-					actions.validateMarks({ [subject]: evt.target.value });
+					actions.setValidation({ [subject]: evt.target.value });
 				} }
 				helperText={ studentManager
 					.setErrorMessage(validation[subject]) }
