@@ -2,7 +2,7 @@ import { React } from 'react';
 import { Alert, Snackbar } from '@mui/material';
 
 const vertical = 'top';
-const horizontal = 'middle';
+const horizontal = 'center';
 
 const Indication = (error, actions) =>
 	<Snackbar
@@ -10,11 +10,11 @@ const Indication = (error, actions) =>
 		anchorOrigin={ { vertical, horizontal } }
 		open={ error }
 		autoHideDuration={ 600 }
-		onClose={ () => actions.close(false) }
+		onClose={ () => actions.closeAlertMessage(false) }
 	>
 		<Alert
 			onClick={ () => {
-				actions.close(false);
+				actions.closeAlertMessage(false);
 			} }
 			severity="error"
 		>
