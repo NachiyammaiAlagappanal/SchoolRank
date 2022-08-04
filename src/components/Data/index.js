@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Inputs from './Inputs';
-import StudentDataTable from './StudentDataTable';
-import StatusUpdate from './StatusUpdate';
+import StudentDataTable from '../StudentDataTable';
+import Notifications from './Notifications';
 import { Box, Paper, Grid } from '@mui/material';
 
 const Data = (context) => {
@@ -17,7 +17,7 @@ const Data = (context) => {
 				<StudentDataTable { ...{ ...context,
 					data: { content: studentDetails }} }
 				/></Grid>
-			<StatusUpdate { ...context }/>
+			<Notifications { ...context }/>
 		</Paper>
 	</Box>;
 };

@@ -34,7 +34,7 @@ const setValidation = (context) => ({
 const editStatus = () => ({
 	error: null,
 });
-const unSelected = (context) => ({
+const updateSelected = (context) => ({
 	selected: true,
 	row: context.data,
 });
@@ -54,7 +54,7 @@ const actions = {
 	editStatus,
 	setChart,
 	setValidation,
-	unSelected,
+	updateSelected,
 	handleClose,
 };
 

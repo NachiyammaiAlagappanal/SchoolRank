@@ -20,7 +20,7 @@ const TableHeader = (columns) =>
 				{sub.toUpperCase()}</TableCell>)}
 	</TableRow>;
 
-const TableContent = (filterMark, actions) =>
+const StudentData = (filterMark, actions) =>
 
 	map(filterMark, (row, i) => <TableRow key={ i }>{
 		map(values(row), (ele, j) =>
@@ -28,13 +28,13 @@ const TableContent = (filterMark, actions) =>
 				key={ j }
 				align="center"
 				onClick={ () => {
-					actions.unSelected(row);
+					actions.updateSelected(row);
 				} }
 			>{ele} </TableCell>)
 	}
 	</TableRow>);
 
-const table = (context) => {
+const StudentMarksTable = (context) => {
 	const { state: { studentDetails }, data, actions } = context;
 	const { content } = data;
 	const columns = studentDetails.map((d) => keys(d)).flat()
@@ -42,13 +42,13 @@ const table = (context) => {
 
 	return <Table>
 		<TableHead>{TableHeader(columns)}</TableHead>
-		<TableBody>{TableContent(content, actions)}</TableBody>
+		<TableBody>{StudentData(content, actions)}</TableBody>
 	</Table>;
 };
 
 const StudentDataTable = (context) =>
 	<Box sx={ { width: '100%' } }>
-		<TableContainer> {table(context)}
+		<TableContainer> {StudentMarksTable(context)}
 		</TableContainer>
 	</Box>;
 

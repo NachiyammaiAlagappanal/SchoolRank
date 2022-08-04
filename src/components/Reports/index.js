@@ -11,7 +11,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Poll, TableView } from '@mui/icons-material';
 import StudentDataTable from '../StudentDataTable';
 import FilterManager from '../../services/FilterManager';
-import Plots from '.Plots';
+import Plots from './Plots';
 
 const Sliders = (context) => {
 	const { state: { range }, data: subject } = context;

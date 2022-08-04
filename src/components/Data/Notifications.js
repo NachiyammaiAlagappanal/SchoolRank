@@ -2,7 +2,7 @@ import { React } from 'react';
 import AlertMessage from './AlertMessage';
 import SuccessMessage from './SuccessMessage';
 
-const StatusUpdate = (context) => {
+const Notifications = (context) => {
 	const { state: { error }} = context;
 
 	return (
@@ -13,4 +13,4 @@ const StatusUpdate = (context) => {
 	);
 };
 
-export default StatusUpdate;
+export default Notifications;
