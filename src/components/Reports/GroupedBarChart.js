@@ -1,10 +1,10 @@
 /* eslint-disable max-lines-per-function */
-/* eslint-disable max-len */
 import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
 
-const GroupedBarChart = ({ config: { chartProps: { width, height }, hundred }, data }) => {
+const GroupedBarChart = ({ config, data }) => {
+	const { chartProps: { width, height }, hundred } = config;
 	const spec = {
 		width: width,
 		height: height,

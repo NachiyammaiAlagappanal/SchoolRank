@@ -1,10 +1,10 @@
-/* eslint-disable max-len */
 /* eslint-disable max-lines-per-function */
 import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
 
-const ColouredScatterPlot = ({ config: { chartProps: { width, height }, hundred }, data }) => {
+const ColouredScatterPlot = ({ config, data }) => {
+	const { chartProps: { width, height }, hundred } = config;
 	const spec = {
 		width: width,
 		height: height,
@@ -22,8 +22,15 @@ const ColouredScatterPlot = ({ config: { chartProps: { width, height }, hundred 
 				title: 'Marks Obtained',
 				scale: { domain: [0, hundred] },
 			},
-			color: { field: 'studentName', type: 'nominal' },
-			shape: { field: 'studentName', type: 'nominal', title: 'Student Name' },
+			color: {
+				field: 'studentName',
+				type: 'nominal',
+			},
+			shape: {
+				field: 'studentName',
+				type: 'nominal',
+				title: 'Student Name',
+			},
 		},
 		data: { name: 'values' },
 	};

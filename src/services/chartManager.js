@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { map } from '@laufire/utils/collection';
 import FilterManager from './FilterManager';
 
