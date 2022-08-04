@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import SliderAndToggle from './Sliders';
+import Reports from './Reports';
 import Data from './Data';
 import { Box, Toolbar } from '@mui/material';
 import Header from './Header';
@@ -48,7 +48,7 @@ const TabContent = (context) => {
 					<Data { ...context }/>
 				</TabPanel>
 				<TabPanel value={ value } index={ 1 }>
-					<SliderAndToggle { ...context }/>
+					<Reports { ...context }/>
 				</TabPanel>
 			</Box>
 		</Box>
