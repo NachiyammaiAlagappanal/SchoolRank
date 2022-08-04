@@ -12,7 +12,7 @@ const AlertBox = (context) =>
 				color="inherit"
 				size="small"
 				onClick={ () => {
-					context.actions.close(false);
+					context.actions.closeAlertMessage(false);
 				} }
 			>
 				<CloseIcon fontSize="inherit"/>

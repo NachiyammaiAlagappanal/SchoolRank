@@ -1,6 +1,6 @@
 import { TableCell, TextField } from '@mui/material';
 import { React } from 'react';
-import ErrorInputIndication from './ErrorInputIndication';
+import ErrorInputIndication from './InputErrorIndication';
 
 const GetMarks = (context) => {
 	const { state: { validation }, state, actions, config } = context;
