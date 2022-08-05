@@ -4,7 +4,6 @@ import { Table, TableCell, TableHead,
 	TableRow, Grid } from '@mui/material';
 import SaveButton from './SaveButton';
 import GetMarks from './GetMarks';
-import DialogBox from './DialogBox';
 
 const GetStudentDetails = (context) => {
 	const { state } = context;
@@ -33,7 +32,6 @@ const Inputs = (context) =>
 		<Table className="table">
 			<TableHead>{ GetStudentDetails(context)}</TableHead>
 		</Table>
-		<DialogBox { ...context }/>
 	</Grid>;
 
 export default Inputs;

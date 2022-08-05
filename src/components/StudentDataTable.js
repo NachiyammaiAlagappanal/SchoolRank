@@ -20,7 +20,7 @@ const TableHeader = (columns) =>
 				{sub.toUpperCase()}</TableCell>)}
 	</TableRow>;
 
-const StudentData = (filterMark, actions) =>
+const TableContent = (filterMark, actions) =>
 
 	map(filterMark, (row, i) => <TableRow key={ i }>{
 		map(values(row), (ele, j) =>
@@ -34,7 +34,7 @@ const StudentData = (filterMark, actions) =>
 	}
 	</TableRow>);
 
-const StudentMarksTable = (context) => {
+const StudentMarks = (context) => {
 	const { state: { studentDetails }, data, actions } = context;
 	const { content } = data;
 	const columns = studentDetails.map((d) => keys(d)).flat()
@@ -42,13 +42,13 @@ const StudentMarksTable = (context) => {
 
 	return <Table>
 		<TableHead>{TableHeader(columns)}</TableHead>
-		<TableBody>{StudentData(content, actions)}</TableBody>
+		<TableBody>{TableContent(content, actions)}</TableBody>
 	</Table>;
 };
 
 const StudentDataTable = (context) =>
 	<Box sx={ { width: '100%' } }>
-		<TableContainer> {StudentMarksTable(context)}
+		<TableContainer> {StudentMarks(context)}
 		</TableContainer>
 	</Box>;
 

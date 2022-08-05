@@ -3,6 +3,7 @@ import Inputs from './Inputs';
 import StudentDataTable from '../StudentDataTable';
 import Notifications from './Notifications';
 import { Box, Paper, Grid } from '@mui/material';
+import DialogBox from './DialogBox';
 
 const Data = (context) => {
 	const { state: { studentDetails }} = context;
@@ -18,6 +19,7 @@ const Data = (context) => {
 					data: { content: studentDetails }} }
 				/></Grid>
 			<Notifications { ...context }/>
+			<DialogBox { ...context }/>
 		</Paper>
 	</Box>;
 };
