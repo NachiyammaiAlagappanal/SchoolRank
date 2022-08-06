@@ -8,8 +8,9 @@ import BarChart from './BarChart';
 const PopUpBox = (row) => values(map(row, (value, key) =>
 	<List
 		key={ key }
-		sx={ { pt: 0 } }
-	>{ `${ key.toUpperCase() }: ${ value }` }</List>));
+		className="text"
+		// sx={ { pt: 0 } }
+	>{ `${ key }: ${ value }` }</List>));
 
 const DialogBox = (context) => {
 	const { state: { selected, row }} = context;

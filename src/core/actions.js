@@ -9,8 +9,8 @@ const setMark = ({ data }) => data;
 const addStudent = (context) =>
 	studentManager.addStudent(context);
 
-const updateRange = (context) => ({
-	range: FilterManager.updateRange(context),
+const updateFilter = (context) => ({
+	filter: FilterManager.updateFilter(context),
 });
 const toggleMenu = (context) => ({
 	value: context.data,
@@ -43,7 +43,7 @@ const actions = {
 	setStudentName,
 	setMark,
 	addStudent,
-	updateRange,
+	updateFilter,
 	toggleMenu,
 	toggleTab,
 	getAlert,

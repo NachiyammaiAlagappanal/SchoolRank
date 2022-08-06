@@ -18,7 +18,7 @@ const seed = {
 		english: 92,
 		science: 80,
 	}],
-	range: {
+	filter: {
 		english: [0, 100],
 		tamil: [0, 100],
 		science: [0, 100],

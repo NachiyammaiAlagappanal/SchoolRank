@@ -16,8 +16,9 @@ const TableHeader = (columns) =>
 			<TableCell
 				key={ sub }
 				align="center"
+				className="text"
 			>
-				{sub.toUpperCase()}</TableCell>)}
+				{sub}</TableCell>)}
 	</TableRow>;
 
 const TableContent = (filterMark, actions) =>

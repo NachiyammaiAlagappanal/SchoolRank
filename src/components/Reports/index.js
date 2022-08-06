@@ -14,14 +14,14 @@ import FilterManager from '../../services/FilterManager';
 import Plots from './Plots';
 
 const Sliders = (context) => {
-	const { state: { range }, data: subject } = context;
+	const { state: { filter }, data: subject } = context;
 
 	return (
 		<Slider
-			getAriaLabel={ () => 'Mark range' }
-			value={ range[subject] }
+			getAriaLabel={ () => 'Mark Range' }
+			value={ filter[subject] }
 			onChange={ (evt) => context.actions
-				.updateRange({ [subject]: evt.target.value }) }
+				.updateFilter({ [subject]: evt.target.value }) }
 			color="primary"
 			valueLabelDisplay="auto"
 			min={ 0 }
