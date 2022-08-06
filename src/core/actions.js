@@ -28,9 +28,6 @@ const closeAlertMessage = (context) => ({
 const setChart = (context) => ({
 	selectedChart: context.data,
 });
-const setValidation = (context) => ({
-	validation: studentManager.getValidationStatus(context),
-});
 const editStatus = () => ({
 	error: null,
 });
@@ -53,7 +50,6 @@ const actions = {
 	closeAlertMessage,
 	editStatus,
 	setChart,
-	setValidation,
 	updateSelected,
 	handleClose,
 };

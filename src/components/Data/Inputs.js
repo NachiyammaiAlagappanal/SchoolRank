@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Table, TableCell, TableHead,
 	TableRow, Grid } from '@mui/material';
 import SaveButton from './SaveButton';
-import GetMarks from './GetMarks';
+import MarkInput from './GetMarks';
 
 const GetStudentDetails = (context) => {
 	const { state } = context;
@@ -22,7 +22,7 @@ const GetStudentDetails = (context) => {
 					context.actions
 						.setStudentName(evt.target.value) }
 			/></TableCell>
-		{GetMarks(context)}
+		{MarkInput(context)}
 		{SaveButton(context)}
 	</TableRow>;
 };

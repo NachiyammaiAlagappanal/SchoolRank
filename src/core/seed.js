@@ -28,9 +28,6 @@ const seed = {
 	error: null,
 	close: true,
 	selectedChart: 'HeatMap',
-	validation: { english: false,
-		tamil: false,
-		science: false },
 	selected: false,
 	row: [],
 };

@@ -59,6 +59,7 @@ const studentManager = {
 			? seed.validation
 			: { ...validation, [key]: true };
 	},
+	isMarkValid: (mark) => mark >= 0 && mark <= hundred,
 };
 
 export default studentManager;

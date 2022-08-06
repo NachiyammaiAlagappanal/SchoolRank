@@ -1,26 +1,33 @@
 import { TableCell, TextField } from '@mui/material';
 import { React } from 'react';
+import studentManager from '../../services/studentManager';
 import ErrorInputIndication from './InputErrorIndication';
 
-const GetMarks = (context) => {
-	const { state: { validation }, state, actions, config } = context;
+const MarkInput = (context) => {
+	const { state, actions, data: subject } = context;
+	const errorStatus = !studentManager.isMarkValid(state[subject]);
 
-	return config.subjects.map((subject) =>
-		<TableCell 	key={ subject } align="center">
-			<TextField
-				error={ validation[subject] }
-				label={ subject }
-				id={ subject }
-				variant="standard"
-				type="number"
-				color="primary"
-				value={ state[subject] }
-				onChange={ (evt) => {
-					actions.setMark({ [subject]: evt.target.value });
-					actions.setValidation({ [subject]: evt.target.value });
-				} }
-			/>
-			{ ErrorInputIndication(validation[subject], actions) }</TableCell>);
+	return <TableCell key={ subject } align="center">
+		<TextField
+			error={ errorStatus }
+			label={ subject }
+			id={ subject }
+			variant="standard"
+			type="number"
+			color="primary"
+			value={ state[subject] }
+			onChange={ (evt) => {
+				actions.setMark({ [subject]: evt.target.value });
+			} }
+		/>
+		{ErrorInputIndication(errorStatus, actions)}</TableCell>;
 };
 
-export default GetMarks;
+const MarkInputs = (context) => {
+	const { config } = context;
+
+	return config.subjects.map((subject) => MarkInput({ ...context,
+		data: subject }));
+};
+
+export default MarkInputs;
