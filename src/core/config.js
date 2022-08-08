@@ -17,6 +17,7 @@ const config = {
 			message: 'Error! Invalid Input',
 		},
 	},
+	hundred: 100,
 };
 
 export default config;

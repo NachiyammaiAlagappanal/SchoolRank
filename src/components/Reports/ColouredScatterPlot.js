@@ -2,7 +2,28 @@
 import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
-
+const encoding = (hundred) => ({
+	x: {
+		field: 'subjectName',
+		type: 'nominal',
+		title: 'Subject',
+	},
+	y: {
+		field: 'marks',
+		type: 'quantitative',
+		title: 'Marks Obtained',
+		scale: { domain: [0, hundred] },
+	},
+	color: {
+		field: 'studentName',
+		type: 'nominal',
+	},
+	shape: {
+		field: 'studentName',
+		type: 'nominal',
+		title: 'Student Name',
+	},
+});
 const ColouredScatterPlot = ({ config, data }) => {
 	const { chartProps: { width, height }, hundred } = config;
 	const spec = {
@@ -10,28 +31,7 @@ const ColouredScatterPlot = ({ config, data }) => {
 		height: height,
 		transform: [{ flatten: ['subjectName', 'marks'] }],
 		mark: { type: 'point', tooltip: true },
-		encoding: {
-			x: {
-				field: 'subjectName',
-				type: 'nominal',
-				title: 'Subject',
-			},
-			y: {
-				field: 'marks',
-				type: 'quantitative',
-				title: 'Marks Obtained',
-				scale: { domain: [0, hundred] },
-			},
-			color: {
-				field: 'studentName',
-				type: 'nominal',
-			},
-			shape: {
-				field: 'studentName',
-				type: 'nominal',
-				title: 'Student Name',
-			},
-		},
+		encoding: encoding(hundred),
 		data: { name: 'values' },
 	};
 	const actions = false;
