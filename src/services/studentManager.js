@@ -39,7 +39,8 @@ const studentManager = {
 			subjects.every((mark) =>
 				inputs[mark] <= hundred && inputs[mark] >= 0)
 		&& !studentManager.hasEmptyInputs(context)
-		);
+				? 'success'
+				: 'error');
 	},
 	clearInputs: () => ({
 		name: '',

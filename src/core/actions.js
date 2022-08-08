@@ -30,15 +30,15 @@ const closeAlertMessage = (context) => ({
 const setChart = (context) => ({
 	selectedChart: context.data,
 });
-const editStatus = () => ({
-	error: null,
-});
 const updateSelected = (context) => ({
 	selected: true,
 	row: context.data,
 });
 const handleClose = () => ({
 	selected: false,
+});
+const editError = () => ({
+	error: false,
 });
 
 const actions = {
@@ -49,8 +49,8 @@ const actions = {
 	toggleMenu,
 	toggleTab,
 	getAlert,
+	editError,
 	closeAlertMessage,
-	editStatus,
 	setChart,
 	updateSelected,
 	handleClose,

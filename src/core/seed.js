@@ -27,7 +27,7 @@ const seed = {
 	},
 	value: 0,
 	alignment: 'Table',
-	error: null,
+	error: false,
 	close: true,
 	selectedChart: 'HeatMap',
 	selected: false,
