@@ -4,18 +4,13 @@ import { Alert, Snackbar } from '@mui/material';
 const vertical = 'top';
 const horizontal = 'center';
 
-const Indication = (error, actions) =>
+const Indication = (error) =>
 	<Snackbar
 		key={ vertical + horizontal }
 		anchorOrigin={ { vertical, horizontal } }
 		open={ error }
-		autoHideDuration={ 600 }
-		onClose={ () => actions.closeAlertMessage(false) }
 	>
 		<Alert
-			onClick={ () => {
-				actions.closeAlertMessage(false);
-			} }
 			severity="error"
 		>
 			Enter valid Input!
@@ -23,7 +18,7 @@ const Indication = (error, actions) =>
 		</Alert>
 	</Snackbar>;
 
-const ErrorInputIndication = (error, actions) =>
-	error && Indication(error, actions);
+const ErrorInputIndication = (error) =>
+	error && Indication(error);
 
 export default ErrorInputIndication;

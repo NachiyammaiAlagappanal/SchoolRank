@@ -7,7 +7,16 @@ const config = {
 		width: 300,
 		height: 300,
 	},
-	hundred: 100,
+	notification: {
+		success: {
+			severity: 'success',
+			message: 'Successfully Saved',
+		},
+		error: {
+			severity: 'error',
+			message: 'Error! Invalid Input',
+		},
+	},
 };
 
 export default config;

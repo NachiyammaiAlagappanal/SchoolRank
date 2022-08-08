@@ -8,7 +8,10 @@ import Data from './components/Data';
 import Reports from './components/Reports';
 
 const App = (context) => {
-	const { state: { value }} = context;
+	const { state: { value }, state } = context;
+
+	// eslint-disable-next-line no-console
+	console.log(state);
 
 	return <Box className="App" role="App">
 		<Box sx={ { display: 'flex' } }>
