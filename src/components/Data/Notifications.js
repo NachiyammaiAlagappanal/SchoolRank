@@ -1,41 +1,51 @@
+/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import { Alert, Collapse, Snackbar } from '@mui/material';
-
-const checkStatus = (error) => error !== '';
-
-const message = {
-	success: 'Successfully Saved!',
-	error: 'Invalid Input check it out!',
-};
-
-const severity = {
-	success: 'success',
-	error: 'error',
-};
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 const inputType = {
 	true: 'success',
 	false: 'error',
 };
 
+const checkStatus = (error) => error !== '';
+
+const action = (actions) =>
+	<IconButton
+		aria-label="close"
+		color="inherit"
+		size="small"
+		onClick={ () => {
+			actions.editError();
+		} }
+	>
+		<CloseIcon fontSize="inherit"/>
+	</IconButton>;
+
 const vertical = 'top';
 const horizontal = 'center';
 
 const Notifications = (context) => {
-	const { state: { error }} = context;
+	const { state: { notification }, actions, config: { message }} = context;
 
 	return (
-		<Collapse in={ checkStatus(error) }>
+		<Collapse in={ checkStatus(notification) }>
 			<Snackbar
 				key={ vertical + horizontal }
 				anchorOrigin={ { vertical, horizontal } }
-				open={ checkStatus(error) }
+				autoHideDuration={ 6000 }
+				open={ checkStatus(notification) }
+				onClose={ () => {
+					actions.editError();
+				} }
 			>
 
 				<Alert
-					severity={ severity[inputType[error]] }
+					severity={ inputType[notification] }
+					action={ action(actions) }
 				>
-					{message[inputType[error]] }
+					{ message[inputType[notification]] }
 				</Alert>
 			</Snackbar></Collapse>);
 };

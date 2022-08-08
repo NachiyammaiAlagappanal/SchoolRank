@@ -12,6 +12,7 @@ const studentManager = {
 
 	getAllStudentsData: (context) => {
 		const { state: { inputs }, state, config: { idMax, idMin }} = context;
+		const { name, tamil, english, science } = inputs;
 
 		return studentManager.isInputsValid(context)
 			?	{
@@ -19,13 +20,12 @@ const studentManager = {
 					...state.studentDetails,
 					{
 						id: rndBetween(idMin, idMax),
-						StudentName: inputs.name,
-						tamil: inputs.tamil,
-						english: inputs.english,
-						science: inputs.science,
+						StudentName: name,
+						tamil: tamil,
+						english: english,
+						science: science,
 					},
-				],
-				...studentManager.clearInputs(context),
+				], ...studentManager.clearInputs(context),
 			}
 			: { studentDetails: [
 				...state.studentDetails,
