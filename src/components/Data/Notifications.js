@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import { Alert, Collapse, Snackbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
@@ -40,14 +39,11 @@ const Notifications = (context) => {
 					actions.editError();
 				} }
 			>
-
 				<Alert
 					severity={ inputType[notification] }
 					action={ action(actions) }
-				>
-					{ message[inputType[notification]] }
-				</Alert>
-			</Snackbar></Collapse>);
+				>{ message[inputType[notification]] }
+				</Alert></Snackbar></Collapse>);
 };
 
 export default Notifications;
