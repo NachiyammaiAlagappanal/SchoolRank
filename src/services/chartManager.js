@@ -10,7 +10,7 @@ const chartManager = {
 		return (
 			map(studentData, (student) => ({
 				studentName: student.StudentName.toUpperCase(),
-				subjectName: chartManager.getSubjects(config.subjects),
+				subjectName: config.subjects,
 				marks: [student.tamil, student.english, student.science],
 			}))
 		);
@@ -23,11 +23,10 @@ const chartManager = {
 				.filterMark({ ...context, data: studentDetails }).length === 0
 		);
 	},
-	getSubjects: (subjects) => subjects.map((ele) => ele.toUpperCase()),
 
 	getStudentData: ({ config, state: { row }}) =>
 		({
-			subjectName: chartManager.getSubjects(config.subjects),
+			subjectName: config.subjects,
 			marks: [row.tamil, row.english, row.science],
 		}),
 };

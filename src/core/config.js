@@ -11,6 +11,7 @@ const config = {
 		success: 'Successfully Saved!',
 		error: 'Invalid Input check it out!',
 	},
+	hundred: 100,
 };
 
 export default config;
