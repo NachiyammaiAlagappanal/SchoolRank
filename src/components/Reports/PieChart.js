@@ -1,7 +1,17 @@
-/* eslint-disable max-lines-per-function */
 import React from 'react';
 import { VegaLite } from 'react-vega';
 import { rndString } from '@laufire/utils/random';
+const encoding = () => ({
+	color: { field: 'studentName',
+		type: 'nominal' },
+	theta: { aggregate: 'sum', field: 'marks',
+		type: 'quantitative' },
+	tooltip: [
+		{ field: 'studentName', type: 'nominal', title: 'Name' },
+		{ field: 'subjectName', type: 'nominal' },
+		{ field: 'marks', type: 'quantitative' },
+	],
+});
 
 const PieChart = ({ config: { chartProps: { width, height }}, data }) => {
 	const spec = {
@@ -10,17 +20,7 @@ const PieChart = ({ config: { chartProps: { width, height }}, data }) => {
 		height: height,
 		transform: [{ flatten: ['subjectName', 'marks'] }],
 		mark: { type: 'arc', tooltip: { content: 'data' }},
-		encoding: {
-			color: { field: 'studentName',
-				type: 'nominal' },
-			theta: { aggregate: 'sum', field: 'marks',
-				type: 'quantitative' },
-			tooltip: [
-				{ field: 'studentName', type: 'nominal', title: 'Name' },
-				{ field: 'subjectName', type: 'nominal' },
-				{ field: 'marks', type: 'quantitative' },
-			],
-		},
+		encoding: encoding(),
 		data: { name: 'values' },
 	};
 	const actions = false;

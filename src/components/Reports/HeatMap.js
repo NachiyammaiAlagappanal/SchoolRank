@@ -1,7 +1,40 @@
-/* eslint-disable max-lines-per-function */
 import { rndString } from '@laufire/utils/random';
 import React from 'react';
 import { VegaLite } from 'react-vega';
+const xAxis = () => ({
+	field: 'subjectName',
+	type: 'nominal',
+	title: 'Subject',
+});
+const yAxis = () => ({
+	field: 'studentName',
+	type: 'nominal',
+	title: 'Student Name',
+});
+const color = (hundred) => ({
+	aggregate: 'max',
+	condition: {
+		param: 'brush',
+		field: 'marks',
+		type: 'quantitative',
+		title: 'Marks',
+		scale: { domain: [0, hundred] },
+	},
+});
+const config = () => ({
+	view: {
+		strokeWidth: 0, step: 13,
+	},
+	axis: {
+		domain: false, grid: true, tickBand: 'extent',
+	},
+});
+const params = () => [
+	{
+		name: 'brush',
+		select: 'interval',
+	},
+];
 
 const HeatMap = ({ config: { chartProps:
 	{ width, height }, hundred }, data }) => {
@@ -10,42 +43,13 @@ const HeatMap = ({ config: { chartProps:
 		width: width,
 		height: height,
 		transform: [{ flatten: ['subjectName', 'marks'] }],
-		config: {
-			view: {
-				strokeWidth: 0, step: 13,
-			},
-			axis: {
-				domain: false, grid: true, tickBand: 'extent',
-			},
-		},
-		params: [
-			{
-				name: 'brush',
-				select: 'interval',
-			},
-		],
+		config: config(),
+		params: params(),
 		mark: { type: 'rect', tooltip: true },
 		encoding: {
-			x: {
-				field: 'subjectName',
-				type: 'nominal',
-				title: 'Subject',
-			},
-			y: {
-				field: 'studentName',
-				type: 'nominal',
-				title: 'Student Name',
-			},
-			color: {
-				aggregate: 'max',
-				condition: {
-					param: 'brush',
-					field: 'marks',
-					type: 'quantitative',
-					title: 'Marks',
-					scale: { domain: [0, hundred] },
-				},
-			},
+			x: xAxis(),
+			y: yAxis(),
+			color: color(hundred),
 		},
 		data: { name: 'values' },
 	};
