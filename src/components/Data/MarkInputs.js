@@ -4,8 +4,8 @@ import studentManager from '../../services/studentManager';
 import ErrorInputIndication from './InputErrorIndication';
 
 const MarkInput = (context) => {
-	const { state, actions, data: subject } = context;
-	const errorStatus = !studentManager.isMarkValid(state[subject]);
+	const { state: { inputs }, actions, data: subject } = context;
+	const errorStatus = !studentManager.isMarkValid(inputs[subject]);
 
 	return <TableCell key={ subject } align="center">
 		<TextField
@@ -15,7 +15,7 @@ const MarkInput = (context) => {
 			variant="standard"
 			type="number"
 			color="primary"
-			value={ state[subject] }
+			value={ inputs[subject] }
 			onChange={ (evt) => {
 				actions.setMark({ [subject]: evt.target.value });
 			} }

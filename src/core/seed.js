@@ -1,9 +1,11 @@
 /* eslint-disable no-magic-numbers */
 const seed = {
 	name: '',
-	english: '',
-	tamil: '',
-	science: '',
+	inputs: {
+		tamil: '',
+		english: '',
+		science: '',
+	},
 	studentDetails: [{
 		id: 1000,
 		StudentName: 'Shalini',

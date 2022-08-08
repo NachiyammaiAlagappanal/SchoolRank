@@ -1,5 +1,4 @@
 import { rndBetween } from '@laufire/utils/lib';
-import { keys, values } from '@laufire/utils/collection';
 
 const hundred = 100;
 
@@ -7,9 +6,12 @@ const studentManager = {
 	addStudent: (context) => ({
 		...studentManager.getAllStudentsData(context),
 	}),
+	addInput: ({ state, data }) => ({
+		...state.inputs, ...data,
+	}),
 
 	getAllStudentsData: (context) => {
-		const { state, config: { idMax, idMin }} = context;
+		const { state: { inputs }, state, config: { idMax, idMin }} = context;
 
 		return studentManager.isInputsValid(context)
 			?	{
@@ -18,9 +20,9 @@ const studentManager = {
 					{
 						id: rndBetween(idMin, idMax),
 						StudentName: state.name,
-						tamil: state.tamil,
-						english: state.english,
-						science: state.science,
+						tamil: inputs.tamil,
+						english: inputs.english,
+						science: inputs.science,
 					},
 				],
 				...studentManager.clearInputs(context),
@@ -31,33 +33,26 @@ const studentManager = {
 	},
 
 	isInputsValid: (context) => {
-		const { config: { subjects }, state } = context;
+		const { config: { subjects }, state: { inputs }} = context;
 
 		return (
-			subjects.every((mark) => state[mark] <= hundred && state[mark] >= 0)
+			subjects.every((mark) =>
+				inputs[mark] <= hundred && inputs[mark] >= 0)
 		&& !studentManager.hasEmptyInputs(context)
 		);
 	},
 	clearInputs: () => ({
 		name: '',
-		tamil: '',
-		english: '',
-		science: '',
+		inputs: {
+			tamil: '',
+			english: '',
+			science: '',
+		},
 	}),
 	hasEmptyInputs: (context) => {
-		const { state, config: { subjects }} = context;
+		const { state: { inputs }, config: { subjects }} = context;
 
-		return ['name', ...subjects].find((ele) => state[ele] === '');
-	},
-	getValidationStatus: (context) => {
-		const { data, state: { validation }, seed } = context;
-
-		const key = keys(data);
-		const value = values(data);
-
-		return value >= 0 && value <= hundred
-			? seed.validation
-			: { ...validation, [key]: true };
+		return ['name', ...subjects].find((ele) => inputs[ele] === '');
 	},
 	isMarkValid: (mark) => mark >= 0 && mark <= hundred,
 };

@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Table, TableCell, TableHead,
 	TableRow, Grid } from '@mui/material';
 import SaveButton from './SaveButton';
-import MarkInput from './GetMarks';
+import MarkInput from './MarkInputs';
 
 const GetStudentDetails = (context) => {
 	const { state } = context;

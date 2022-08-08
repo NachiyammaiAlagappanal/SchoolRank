@@ -4,7 +4,9 @@ import studentManager from '../services/studentManager';
 const setStudentName = ({ data: name }) => ({
 	name,
 });
-const setMark = ({ data }) => data;
+const setMark = (context) => ({
+	inputs: studentManager.addInput(context),
+});
 
 const addStudent = (context) =>
 	studentManager.addStudent(context);
