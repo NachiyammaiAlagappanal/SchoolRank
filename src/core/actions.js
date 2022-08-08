@@ -18,11 +18,7 @@ const toggleTab = (context) => ({
 	alignment: context.data,
 });
 const getAlert = (context) => ({
-	error: studentManager.isInputsValid(context),
-	close: true,
-});
-const closeAlertMessage = (context) => ({
-	close: context.data,
+	notification: studentManager.isInputsValid(context),
 });
 const setChart = (context) => ({
 	selectedChart: context.data,
@@ -35,7 +31,7 @@ const handleClose = () => ({
 	selected: false,
 });
 const editError = () => ({
-	error: false,
+	notification: '',
 });
 
 const actions = {
@@ -46,7 +42,6 @@ const actions = {
 	toggleTab,
 	getAlert,
 	editError,
-	closeAlertMessage,
 	setChart,
 	updateSelected,
 	handleClose,
