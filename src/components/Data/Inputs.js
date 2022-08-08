@@ -6,7 +6,7 @@ import SaveButton from './SaveButton';
 import MarkInput from './MarkInputs';
 
 const GetStudentDetails = (context) => {
-	const { state } = context;
+	const { state: { inputs }} = context;
 
 	return <TableRow>
 		<TableCell/>
@@ -17,10 +17,10 @@ const GetStudentDetails = (context) => {
 				id="name"
 				color="primary"
 				variant="standard"
-				value={ state.name }
+				value={ inputs.name }
 				onChange={ (evt) =>
 					context.actions
-						.setStudentName(evt.target.value) }
+						.setInputs({ name: evt.target.value }) }
 			/></TableCell>
 		{MarkInput(context)}
 		{SaveButton(context)}

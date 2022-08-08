@@ -19,7 +19,7 @@ const studentManager = {
 					...state.studentDetails,
 					{
 						id: rndBetween(idMin, idMax),
-						StudentName: state.name,
+						StudentName: inputs.name,
 						tamil: inputs.tamil,
 						english: inputs.english,
 						science: inputs.science,
@@ -38,13 +38,12 @@ const studentManager = {
 		return (
 			subjects.every((mark) =>
 				inputs[mark] <= hundred && inputs[mark] >= 0)
-		&& !studentManager.hasEmptyInputs(context)
-				? 'success'
-				: 'error');
+		&& !studentManager.hasEmptyInputs(context));
 	},
+
 	clearInputs: () => ({
-		name: '',
 		inputs: {
+			name: '',
 			tamil: '',
 			english: '',
 			science: '',

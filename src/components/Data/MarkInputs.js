@@ -17,7 +17,7 @@ const MarkInput = (context) => {
 			color="primary"
 			value={ inputs[subject] }
 			onChange={ (evt) => {
-				actions.setMark({ [subject]: evt.target.value });
+				actions.setInputs({ [subject]: evt.target.value });
 			} }
 		/>
 		{ErrorInputIndication(errorStatus, actions)}</TableCell>;

@@ -1,10 +1,7 @@
 import FilterManager from '../services/FilterManager';
 import studentManager from '../services/studentManager';
 
-const setStudentName = ({ data: name }) => ({
-	name,
-});
-const setMark = (context) => ({
+const setInputs = (context) => ({
 	inputs: studentManager.addInput(context),
 });
 
@@ -42,8 +39,7 @@ const editError = () => ({
 });
 
 const actions = {
-	setStudentName,
-	setMark,
+	setInputs,
 	addStudent,
 	updateFilter,
 	toggleMenu,

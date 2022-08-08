@@ -1,7 +1,7 @@
 /* eslint-disable no-magic-numbers */
 const seed = {
-	name: '',
 	inputs: {
+		name: '',
 		tamil: '',
 		english: '',
 		science: '',
@@ -27,7 +27,7 @@ const seed = {
 	},
 	value: 0,
 	alignment: 'Table',
-	error: false,
+	error: '',
 	close: true,
 	selectedChart: 'HeatMap',
 	selected: false,

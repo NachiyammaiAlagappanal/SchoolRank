@@ -13,6 +13,11 @@ const severity = {
 	error: 'error',
 };
 
+const inputType = {
+	true: 'success',
+	false: 'error',
+};
+
 const vertical = 'top';
 const horizontal = 'center';
 
@@ -20,18 +25,19 @@ const Notifications = (context) => {
 	const { state: { error }} = context;
 
 	return (
-		<Snackbar
-			key={ vertical + horizontal }
-			anchorOrigin={ { vertical, horizontal } }
-			open={ checkStatus(error) }
-		>
-			<Collapse in={ checkStatus(error) }>
+		<Collapse in={ checkStatus(error) }>
+			<Snackbar
+				key={ vertical + horizontal }
+				anchorOrigin={ { vertical, horizontal } }
+				open={ checkStatus(error) }
+			>
+
 				<Alert
-					severity={ severity[error] }
+					severity={ severity[inputType[error]] }
 				>
-					{message[error] }
-				</Alert></Collapse>
-		</Snackbar>);
+					{message[inputType[error]] }
+				</Alert>
+			</Snackbar></Collapse>);
 };
 
 export default Notifications;
