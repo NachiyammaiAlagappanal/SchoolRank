@@ -3,15 +3,15 @@ import FilterManager from './FilterManager';
 
 const chartManager = {
 	getFilteredStudentsData: (context) => {
-		const { config, state: { studentDetails }} = context;
+		const { config: { subjects }, state: { studentDetails }} = context;
 		const studentData = FilterManager
 			.filterMark({ ...context, data: studentDetails });
 
 		return (
 			map(studentData, (student) => ({
 				studentName: student.StudentName.toUpperCase(),
-				subjectName: config.subjects,
-				marks: [student.tamil, student.english, student.science],
+				subjectName: subjects,
+				marks: subjects.map((subject) => student[subject]),
 			}))
 		);
 	},
@@ -24,10 +24,10 @@ const chartManager = {
 		);
 	},
 
-	getStudentData: ({ config, state: { row }}) =>
+	getStudentData: ({ config: { subjects }, state: { row }}) =>
 		({
-			subjectName: config.subjects,
-			marks: [row.tamil, row.english, row.science],
+			subjectName: subjects,
+			marks: subjects.map((subject) => row[subject]),
 		}),
 };
 
